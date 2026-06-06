@@ -1,4 +1,4 @@
-# Deploy Pagedrop privacy policy to GitHub Pages.
+# Deploy PageDrop privacy policy to GitHub Pages.
 # Prerequisite: run `gh auth login` once and complete browser sign-in.
 
 $ErrorActionPreference = 'Continue'
@@ -37,7 +37,7 @@ Set-Location $PSScriptRoot
 if (-not (Test-Path '.git')) {
   git init -b $PagesBranch
   git add index.html
-  git commit -m 'Add Pagedrop privacy policy.'
+  git commit -m 'Add PageDrop privacy policy.'
 }
 
 $remoteUrl = "https://github.com/$owner/$RepoName.git"
@@ -51,7 +51,7 @@ if ($hasOrigin) {
 
 $repoExists = gh repo view "$owner/$RepoName" 2>$null
 if ($LASTEXITCODE -ne 0) {
-  gh repo create $RepoName --public --description 'Privacy policy for the Pagedrop Chrome extension.'
+  gh repo create $RepoName --public --description 'Privacy policy for the PageDrop Chrome extension.'
   if ($LASTEXITCODE -ne 0) {
     Write-Error 'Failed to create GitHub repository.'
   }
