@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uninstall feedback — PageDrop</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #1a1a2e;
+      background: #f7f8fa;
+      padding: 40px 20px 64px;
+    }
+
+    .page {
+      max-width: 560px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #e4e7ec;
+      border-radius: 12px;
+      padding: 40px 44px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: #0f1923;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0f1923;
+      letter-spacing: -0.3px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f1923;
+      letter-spacing: -0.4px;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .lead {
+      font-size: 15px;
+      color: #4b5563;
+      margin-bottom: 28px;
+    }
+
+    .panel { display: none; }
+    .panel.is-active { display: block; }
+
+    fieldset {
+      border: none;
+      margin: 0 0 24px;
+      padding: 0;
+    }
+
+    legend {
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f1923;
+      margin-bottom: 12px;
+      padding: 0;
+    }
+
+    .legend-optional {
+      font-weight: 400;
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    .option-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .option-list label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1px solid #e4e7ec;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #374151;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .option-list label:hover {
+      border-color: #c5cad3;
+      background: #f9fafb;
+    }
+
+    .option-list input {
+      margin-top: 3px;
+      flex-shrink: 0;
+      accent-color: #007a55;
+    }
+
+    .option-list label:has(input:checked) {
+      border-color: #007a55;
+      background: #f0fdf8;
+    }
+
+    textarea,
+    input[type="email"],
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #e4e7ec;
+      border-radius: 8px;
+      font: inherit;
+      font-size: 14px;
+      color: #374151;
+      resize: vertical;
+    }
+
+    textarea:focus,
+    input:focus {
+      outline: 2px solid #00e5a0;
+      outline-offset: 1px;
+      border-color: #007a55;
+    }
+
+    .star-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .star-row label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid #e4e7ec;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      color: #374151;
+    }
+
+    .star-row label:has(input:checked) {
+      border-color: #007a55;
+      background: #f0fdf8;
+      color: #007a55;
+    }
+
+    .star-row input { display: none; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #0f1923;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover { background: #1a2d3d; }
+
+    .btn-secondary {
+      background: transparent;
+      color: #6b7280;
+      border: 1px solid #e4e7ec;
+    }
+
+    .btn-secondary:hover {
+      background: #f9fafb;
+      color: #374151;
+    }
+
+    .btn-link {
+      background: transparent;
+      color: #007a55;
+      padding: 12px 0;
+    }
+
+    .notice {
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .notice-warn {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+    }
+
+    .notice-success {
+      background: #f0fdf8;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+    }
+
+    .error-text {
+      font-size: 13px;
+      color: #b91c1c;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .error-text.is-visible { display: block; }
+
+    footer {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #e4e7ec;
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: #007a55;
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      body { padding: 24px 16px 48px; }
+      .page { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="brand">
+      <div class="brand-icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M4 9 L4 4 L9 4" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13 4 L18 4 L18 9" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 13 L18 18 L13 18" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 18 L4 18 L4 13" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="11" cy="11" r="1.2" fill="#00e5a0"/>
+        </svg>
+      </div>
+      <span class="brand-name">PageDrop</span>
+    </div>
+
+    <div id="panel-step1" class="panel is-active" role="region" aria-labelledby="step1-title">
+      <h1 id="step1-title">Sorry to see you go</h1>
+      <p class="lead">PageDrop was uninstalled. A quick answer (30 seconds) helps us improve.</p>
+
+      <div id="config-warn" class="notice notice-warn" hidden>
+        Feedback storage is not configured yet. You can still close this tab — your answers will not be saved.
+      </div>
+
+      <form id="form-step1" novalidate>
+        <fieldset>
+          <legend>Why are you uninstalling? <span aria-hidden="true">*</span></legend>
+          <ul class="option-list" id="reason-list"></ul>
+          <p id="reason-error" class="error-text">Please choose a reason.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>How long did you use PageDrop? <span class="legend-optional">(optional)</span></legend>
+          <ul class="option-list" id="duration-list"></ul>
+        </fieldset>
+
+        <fieldset>
+          <legend>Which mode did you use most? <span class="legend-optional">(optional)</span></legend>
+          <ul class="option-list" id="mode-list"></ul>
+        </fieldset>
+
+        <fieldset>
+          <legend for="short-note">Anything else in one line? <span class="legend-optional">(optional)</span></legend>
+          <input type="text" id="short-note" name="short_note" maxlength="500" autocomplete="off" />
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary" id="skip-step1">Skip — no thanks</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="panel-step2" class="panel" role="region" aria-labelledby="step2-title" hidden>
+      <h1 id="step2-title">Help us improve PageDrop</h1>
+      <p class="lead">Optional — about 2 minutes. Thank you for the quick feedback already.</p>
+
+      <div id="accident-notice" class="notice notice-success" hidden>
+        <p style="margin-bottom: 10px;">Sounds like this was an accident. You can reinstall PageDrop anytime.</p>
+        <a id="reinstall-link" class="btn btn-primary" href="#" hidden>Reinstall PageDrop</a>
+      </div>
+
+      <form id="form-step2" novalidate>
+        <fieldset>
+          <legend for="goal">What were you trying to capture or accomplish?</legend>
+          <textarea id="goal" name="goal" rows="3" maxlength="1000"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend for="frustration">What frustrated you most?</legend>
+          <textarea id="frustration" name="frustration" rows="3" maxlength="2000"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend for="improvement">What one change would make you try PageDrop again?</legend>
+          <textarea id="improvement" name="improvement" rows="3" maxlength="2000"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Overall experience <span class="legend-optional">(optional)</span></legend>
+          <div class="star-row" id="rating-row"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend for="email">Email for follow-up <span class="legend-optional">(optional, voluntary)</span></legend>
+          <input type="email" id="email" name="email" maxlength="254" autocomplete="email" />
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Submit feedback</button>
+          <button type="button" class="btn btn-secondary" id="skip-step2">No thanks, I'm done</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="panel-done" class="panel" role="status" hidden>
+      <h1>Thank you</h1>
+      <p class="lead">Your feedback helps us build a better screenshot tool. We appreciate your time.</p>
+      <div class="actions">
+        <button type="button" class="btn btn-secondary" id="close-done">Close this tab</button>
+      </div>
+    </div>
+
+    <footer>
+      <p>Feedback is voluntary and not linked to your screenshots or browsing history.</p>
+      <p><a href="index.html">Privacy policy</a></p>
+    </footer>
+  </div>
+
+  <script src="survey-config.js"></script>
+  <script>
+    'use strict';
+
+    const REASON_OPTIONS = [
+      { value: 'buggy', label: "Didn't work as expected / buggy" },
+      { value: 'missing_feature', label: 'Missing a feature I need' },
+      { value: 'slow_complicated', label: 'Too slow or complicated' },
+      { value: 'privacy', label: 'Privacy concerns' },
+      { value: 'alternative', label: 'Found a better alternative' },
+      { value: 'accident', label: 'Installed by accident' },
+      { value: 'other', label: 'Other' },
+    ];
+
+    const DURATION_OPTIONS = [
+      { value: 'first_try', label: 'First try today' },
+      { value: 'less_than_week', label: 'Less than a week' },
+      { value: 'one_to_four_weeks', label: '1–4 weeks' },
+      { value: 'one_plus_months', label: '1+ months' },
+    ];
+
+    const MODE_OPTIONS = [
+      { value: 'viewport', label: 'Print Page' },
+      { value: 'fullpage', label: 'Scroll & Capture' },
+      { value: 'region', label: 'Snip Area' },
+      { value: 'never_worked', label: 'Never got it to work' },
+    ];
+
+    const params = new URLSearchParams(window.location.search);
+    const extensionVersion = params.get('v') || '';
+    const urlSecretKey = params.get('key') || '';
+
+    const config = window.PAGEDROP_SURVEY || {};
+    const secretKey = urlSecretKey || config.secretKey || '';
+    const appsScriptUrl = (config.appsScriptUrl || '').trim();
+
+    let submissionId = createSubmissionId();
+    let step1Answers = {};
+
+    function createSubmissionId() {
+      if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+        return crypto.randomUUID();
+      }
+      return 'pd-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+    }
+
+    function buildRadioList(containerId, name, options) {
+      const container = document.getElementById(containerId);
+      container.replaceChildren();
+      for (const option of options) {
+        const li = document.createElement('li');
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = name;
+        input.value = option.value;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(option.label));
+        li.appendChild(label);
+        container.appendChild(li);
+      }
+    }
+
+    function buildRatingRow() {
+      const row = document.getElementById('rating-row');
+      row.replaceChildren();
+      for (let i = 1; i <= 5; i++) {
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'rating';
+        input.value = String(i);
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(String(i)));
+        row.appendChild(label);
+      }
+    }
+
+    function getRadioValue(name) {
+      const checked = document.querySelector('input[name="' + name + '"]:checked');
+      return checked ? checked.value : '';
+    }
+
+    function collectStep1Answers() {
+      return {
+        submission_id: submissionId,
+        reason: getRadioValue('reason'),
+        duration: getRadioValue('duration'),
+        mode: getRadioValue('mode'),
+        short_note: document.getElementById('short-note').value.trim(),
+      };
+    }
+
+    function collectStep2Answers() {
+      return {
+        submission_id: submissionId,
+        reason: step1Answers.reason || '',
+        duration: step1Answers.duration || '',
+        mode: step1Answers.mode || '',
+        short_note: step1Answers.short_note || '',
+        goal: document.getElementById('goal').value.trim(),
+        frustration: document.getElementById('frustration').value.trim(),
+        improvement: document.getElementById('improvement').value.trim(),
+        rating: getRadioValue('rating'),
+        email: document.getElementById('email').value.trim(),
+      };
+    }
+
+    function isSurveyConfigured() {
+      return Boolean(appsScriptUrl && secretKey);
+    }
+
+    function submitSurvey(step, answers) {
+      if (!isSurveyConfigured()) {
+        return Promise.resolve({ ok: false, skipped: true });
+      }
+
+      const payload = JSON.stringify({
+        key: secretKey,
+        step: String(step),
+        version: extensionVersion,
+        answers,
+      });
+
+      if (navigator.sendBeacon) {
+        const blob = new Blob([payload], { type: 'text/plain' });
+        navigator.sendBeacon(appsScriptUrl, blob);
+        return Promise.resolve({ ok: true, beacon: true });
+      }
+
+      return fetch(appsScriptUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: payload,
+      }).then(() => ({ ok: true }));
+    }
+
+    function showPanel(panelId) {
+      const panels = ['panel-step1', 'panel-step2', 'panel-done'];
+      for (const id of panels) {
+        const el = document.getElementById(id);
+        const active = id === panelId;
+        el.classList.toggle('is-active', active);
+        el.hidden = !active;
+      }
+    }
+
+    function showDone() {
+      showPanel('panel-done');
+    }
+
+    function maybeShowAccidentNotice(reason) {
+      const notice = document.getElementById('accident-notice');
+      const link = document.getElementById('reinstall-link');
+      const storeUrl = (config.chromeWebStoreUrl || '').trim();
+      if (reason !== 'accident') {
+        notice.hidden = true;
+        return;
+      }
+      notice.hidden = false;
+      if (storeUrl) {
+        link.href = storeUrl;
+        link.hidden = false;
+      } else {
+        link.hidden = true;
+      }
+    }
+
+    buildRadioList('reason-list', 'reason', REASON_OPTIONS);
+    buildRadioList('duration-list', 'duration', DURATION_OPTIONS);
+    buildRadioList('mode-list', 'mode', MODE_OPTIONS);
+    buildRatingRow();
+
+    if (!isSurveyConfigured()) {
+      document.getElementById('config-warn').hidden = false;
+    }
+
+    document.getElementById('form-step1').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const answers = collectStep1Answers();
+      if (!answers.reason) {
+        document.getElementById('reason-error').classList.add('is-visible');
+        return;
+      }
+      document.getElementById('reason-error').classList.remove('is-visible');
+      step1Answers = answers;
+      submitSurvey(1, answers);
+      maybeShowAccidentNotice(answers.reason);
+      showPanel('panel-step2');
+    });
+
+    document.getElementById('skip-step1').addEventListener('click', () => {
+      showDone();
+    });
+
+    document.getElementById('form-step2').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const answers = collectStep2Answers();
+      submitSurvey(2, answers);
+      showDone();
+    });
+
+    document.getElementById('skip-step2').addEventListener('click', () => {
+      showDone();
+    });
+
+    document.getElementById('close-done').addEventListener('click', () => {
+      window.close();
+    });
+  </script>
+</body>
+</html>
