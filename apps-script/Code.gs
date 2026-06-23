@@ -62,15 +62,27 @@ function doGet() {
  * @returns {Object<string, *>|null}
  */
 function parseRequestPayload(e) {
-  if (!e || !e.postData || !e.postData.contents) {
+  if (!e) {
     return null;
   }
 
-  try {
-    return JSON.parse(e.postData.contents);
-  } catch {
-    return null;
+  if (e.postData && e.postData.contents) {
+    try {
+      return JSON.parse(e.postData.contents);
+    } catch {
+      // Fall through to form-encoded payload.
+    }
   }
+
+  if (e.parameter && e.parameter.payload) {
+    try {
+      return JSON.parse(e.parameter.payload);
+    } catch {
+      return null;
+    }
+  }
+
+  return null;
 }
 
 /**

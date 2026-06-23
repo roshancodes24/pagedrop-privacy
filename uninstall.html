@@ -500,18 +500,49 @@
         answers,
       });
 
-      if (navigator.sendBeacon) {
-        const blob = new Blob([payload], { type: 'text/plain' });
-        navigator.sendBeacon(appsScriptUrl, blob);
-        return Promise.resolve({ ok: true, beacon: true });
-      }
-
+      // sendBeacon often drops POST bodies on Apps Script redirect responses.
+      // no-cors fetch with text/plain is a simple cross-origin request (no preflight).
       return fetch(appsScriptUrl, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
+        redirect: 'follow',
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
         body: payload,
-      }).then(() => ({ ok: true }));
+      })
+        .then(() => ({ ok: true }))
+        .catch(() => submitSurveyViaForm(payload));
+    }
+
+    function submitSurveyViaForm(payloadJson) {
+      return new Promise((resolve) => {
+        const iframeName = 'pagedrop-survey-submit-' + Date.now();
+        const iframe = document.createElement('iframe');
+        iframe.name = iframeName;
+        iframe.hidden = true;
+        iframe.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(iframe);
+
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = appsScriptUrl;
+        form.target = iframeName;
+        form.style.display = 'none';
+
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'payload';
+        input.value = payloadJson;
+        form.appendChild(input);
+
+        document.body.appendChild(form);
+        form.submit();
+
+        window.setTimeout(() => {
+          form.remove();
+          iframe.remove();
+          resolve({ ok: true, form: true });
+        }, 1500);
+      });
     }
 
     function showPanel(panelId) {
