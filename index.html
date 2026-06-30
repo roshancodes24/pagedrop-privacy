@@ -270,11 +270,10 @@
             </span>
           </li>
           <li>
-            <span class="permission-name">clipboardWrite</span>
+            <span class="permission-name">clipboardWrite (optional)</span>
             <span class="permission-desc">
-              Used in the editor so you can copy your finished screenshot to the clipboard when you
-              choose to. PageDrop only writes the image you explicitly copy; it does not read your
-              clipboard.
+              Requested only when you choose to copy from the editor. PageDrop only writes the image
+              you explicitly copy; it does not read your clipboard.
             </span>
           </li>
           <li>
@@ -286,16 +285,12 @@
               never transmitted to any server.
             </span>
           </li>
-          <li>
-            <span class="permission-name">host_permissions (&lt;all_urls&gt;)</span>
-            <span class="permission-desc">
-              Required because users may want to capture screenshots on any website they visit.
-              PageDrop needs access to the page being captured to scroll it for full-page screenshots,
-              display the region-selection overlay, and coordinate capture on sites across the web.
-              PageDrop does not collect, transmit, or store data from the pages you visit.
-            </span>
-          </li>
         </ul>
+        <p>
+          PageDrop does not request broad <code>host_permissions</code> or always-on access to all
+          websites. It uses <code>activeTab</code> and on-demand <code>scripting</code> injection only
+          when you start a capture on the tab you are viewing.
+        </p>
       </section>
 
       <section aria-labelledby="uninstall-feedback">
