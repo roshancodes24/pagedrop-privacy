@@ -5,6 +5,7 @@
 window.PAGEDROP_SURVEY = {
   appsScriptUrl: 'https://script.google.com/macros/s/AKfycbyJMGf2D_AwZuZWhmjoRHueJQPCq8irsGjQr9PQYagdszOwtd8eak7wdlzvLFet-E1jlA/exec',
   secretKey: 'pagedrop-uninstall-8f2a1c9e',
-  // Paste your Chrome Web Store listing URL for reinstall buttons on the survey page.
-  chromeWebStoreUrl: '',
+  // Chrome Web Store listing for reinstall buttons on the uninstall survey page.
+  chromeWebStoreUrl:
+    'https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp',
 };

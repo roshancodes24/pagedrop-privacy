@@ -5,4 +5,5 @@
  * Example:
  * window.PAGEDROP_STORE_URL = 'https://chromewebstore.google.com/detail/pagedrop/xxxxxxxx';
  */
-window.PAGEDROP_STORE_URL = '';
+window.PAGEDROP_STORE_URL =
+  'https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp';
