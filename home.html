@@ -124,6 +124,43 @@
       text-align: center;
     }
 
+    .pin-tip {
+      max-width: 520px;
+      margin: 20px auto 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #374151;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #e4e7ec;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .pin-tip strong {
+      color: #0f1923;
+    }
+
+    .shortcut-group {
+      margin-bottom: 16px;
+    }
+
+    .shortcut-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .shortcut-group h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .shortcut-group ul {
+      margin-bottom: 0;
+    }
+
     .card {
       background: #ffffff;
       border: 1px solid #e4e7ec;
@@ -201,6 +238,10 @@
         <a class="btn btn-secondary" href="index.html">Privacy policy</a>
       </div>
       <p class="cta-note" id="install-note">Set your Chrome Web Store URL in <code>store-url.js</code> after publishing.</p>
+      <p class="pin-tip">
+        <strong>Tip:</strong> After installing, click the <strong>puzzle piece</strong> (Extensions) in the Chrome toolbar,
+        then click the <strong>pin</strong> next to PageDrop so it stays visible for one-click access.
+      </p>
     </header>
 
     <section class="card">
@@ -235,11 +276,25 @@
 
     <section class="card">
       <h2>Keyboard shortcuts</h2>
-      <ul>
-        <li><code>Alt+Shift+V</code> — visible tab screenshot</li>
-        <li><code>Alt+Shift+F</code> — full page screenshot</li>
-        <li><code>Alt+Shift+R</code> — region screenshot</li>
-      </ul>
+      <p style="margin-bottom: 16px; color: #4b5563; font-size: 15px;">
+        Customize shortcuts at <code>chrome://extensions/shortcuts</code>.
+      </p>
+      <div class="shortcut-group">
+        <h3>Windows</h3>
+        <ul>
+          <li><code>Alt+Shift+V</code> — Print Page (visible tab screenshot)</li>
+          <li><code>Alt+Shift+F</code> — Scroll &amp; Capture (full page)</li>
+          <li><code>Alt+Shift+R</code> — Snip Area (region)</li>
+        </ul>
+      </div>
+      <div class="shortcut-group">
+        <h3>Mac</h3>
+        <ul>
+          <li><code>⌥⇧V</code> (Option + Shift + V) — Print Page</li>
+          <li><code>⌥⇧F</code> (Option + Shift + F) — Scroll &amp; Capture</li>
+          <li><code>⌥⇧R</code> (Option + Shift + R) — Snip Area</li>
+        </ul>
+      </div>
     </section>
 
     <footer>
