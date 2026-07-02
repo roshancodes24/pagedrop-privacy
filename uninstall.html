@@ -598,6 +598,7 @@
         el.classList.toggle('is-active', active);
         el.hidden = !active;
       }
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
 
     function showDone() {
