@@ -25,6 +25,7 @@ const HEADERS = [
   'email',
   'version',
   'days_since_install',
+  'abandoned',
 ];
 
 /**
@@ -110,6 +111,7 @@ function buildRow(payload) {
     sanitize(answers.email, 254),
     sanitize(payload.version, 32),
     sanitize(payload.days_since_install, 16),
+    answers.abandoned === true || answers.abandoned === 'true' ? 'yes' : '',
   ];
 }
 

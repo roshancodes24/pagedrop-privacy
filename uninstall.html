@@ -450,6 +450,9 @@
 
     let submissionId = createSubmissionId();
     let step1Answers = {};
+    let step1Submitted = false;
+    let partialStep1Sent = false;
+    let optedOut = false;
 
     function createSubmissionId() {
       if (typeof crypto !== 'undefined' && crypto.randomUUID) {
@@ -532,30 +535,78 @@
       return Boolean(appsScriptUrl && secretKey);
     }
 
-    function submitSurvey(step, answers) {
-      if (!isSurveyConfigured()) {
-        return Promise.resolve({ ok: false, skipped: true });
-      }
+    function hasPartialStep1Answers(answers) {
+      return Boolean(
+        answers.reason ||
+        answers.duration ||
+        answers.mode ||
+        answers.short_note
+      );
+    }
 
-      const payload = JSON.stringify({
+    function buildSurveyPayload(step, answers) {
+      return JSON.stringify({
         key: secretKey,
         step: String(step),
         version: extensionVersion,
         days_since_install: daysSinceInstall,
         answers,
       });
+    }
 
-      // sendBeacon often drops POST bodies on Apps Script redirect responses.
-      // no-cors fetch with text/plain is a simple cross-origin request (no preflight).
-      return fetch(appsScriptUrl, {
+    function submitSurvey(step, answers, options) {
+      if (!isSurveyConfigured()) {
+        return Promise.resolve({ ok: false, skipped: true });
+      }
+
+      const payload = buildSurveyPayload(step, answers);
+      const fetchOptions = {
         method: 'POST',
         mode: 'no-cors',
         redirect: 'follow',
         headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
         body: payload,
-      })
+      };
+      if (options && options.keepalive) {
+        fetchOptions.keepalive = true;
+      }
+
+      // sendBeacon often drops POST bodies on Apps Script redirect responses.
+      // no-cors fetch with text/plain is a simple cross-origin request (no preflight).
+      return fetch(appsScriptUrl, fetchOptions)
         .then(() => ({ ok: true }))
         .catch(() => submitSurveyViaForm(payload));
+    }
+
+    function sendPartialStep1OnLeave() {
+      if (!isSurveyConfigured()) return;
+      if (partialStep1Sent || step1Submitted || optedOut) return;
+
+      const step1Panel = document.getElementById('panel-step1');
+      if (!step1Panel || step1Panel.hidden) return;
+
+      const answers = collectStep1Answers();
+      if (!hasPartialStep1Answers(answers)) return;
+
+      partialStep1Sent = true;
+      const payload = buildSurveyPayload(1, Object.assign({}, answers, { abandoned: true }));
+
+      try {
+        fetch(appsScriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          keepalive: true,
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+          body: payload,
+        });
+      } catch {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(
+            appsScriptUrl,
+            new Blob([payload], { type: 'text/plain;charset=UTF-8' })
+          );
+        }
+      }
     }
 
     function submitSurveyViaForm(payloadJson) {
@@ -681,6 +732,7 @@
       }
       document.getElementById('reason-error').classList.remove('is-visible');
       step1Answers = answers;
+      step1Submitted = true;
       setSubmitting('submit-step1', true);
       submitSurvey(1, answers).finally(() => {
         setSubmitting('submit-step1', false);
@@ -690,6 +742,7 @@
     });
 
     document.getElementById('skip-step1').addEventListener('click', () => {
+      optedOut = true;
       showDone();
     });
 
@@ -710,6 +763,8 @@
     document.getElementById('close-done').addEventListener('click', () => {
       window.close();
     });
+
+    window.addEventListener('pagehide', sendPartialStep1OnLeave);
   </script>
 </body>
 </html>
