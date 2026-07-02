@@ -24,6 +24,7 @@ const HEADERS = [
   'rating',
   'email',
   'version',
+  'days_since_install',
 ];
 
 /**
@@ -108,6 +109,7 @@ function buildRow(payload) {
     sanitize(answers.rating, 8),
     sanitize(answers.email, 254),
     sanitize(payload.version, 32),
+    sanitize(payload.days_since_install, 16),
   ];
 }
 

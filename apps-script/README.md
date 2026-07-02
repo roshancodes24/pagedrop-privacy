@@ -49,6 +49,9 @@ One-time setup to store voluntary uninstall feedback in a Google Sheet.
 | rating | — | yes |
 | email | — | optional |
 | version | from URL `?v=` | same |
+| days_since_install | from URL `?days=` | same (days since first install) |
+
+**Existing Sheets:** If you already have a Responses tab, add a **`days_since_install`** column header after `version`, then redeploy the Apps Script web app.
 
 ## Security note
 

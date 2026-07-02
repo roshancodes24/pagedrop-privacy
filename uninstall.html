@@ -66,6 +66,20 @@
       margin-bottom: 28px;
     }
 
+    .step-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #007a55;
+      background: #f0fdf8;
+      border: 1px solid #a7f3d0;
+      border-radius: 999px;
+      padding: 4px 10px;
+      margin-bottom: 12px;
+    }
+
     .panel { display: none; }
     .panel.is-active { display: block; }
 
@@ -201,6 +215,11 @@
 
     .btn-primary:hover { background: #1a2d3d; }
 
+    .btn-primary:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
     .btn-secondary {
       background: transparent;
       color: #6b7280;
@@ -284,8 +303,9 @@
     </div>
 
     <div id="panel-step1" class="panel is-active" role="region" aria-labelledby="step1-title">
+      <p class="step-badge">Step 1 of 2</p>
       <h1 id="step1-title">Sorry to see you go</h1>
-      <p class="lead">PageDrop was uninstalled. A quick answer (30 seconds) helps us improve.</p>
+      <p class="lead">PageDrop was uninstalled. A quick answer (about 30 seconds) helps us improve.</p>
 
       <div id="config-warn" class="notice notice-warn" hidden>
         Feedback storage is not configured yet. You can still close this tab — your answers will not be saved.
@@ -313,16 +333,22 @@
           <input type="text" id="short-note" name="short_note" maxlength="500" autocomplete="off" />
         </fieldset>
 
+        <fieldset id="other-reason-field" hidden>
+          <legend for="other-note">Tell us more <span class="legend-optional">(optional)</span></legend>
+          <input type="text" id="other-note" name="other_note" maxlength="500" autocomplete="off" placeholder="What was the main reason?" />
+        </fieldset>
+
         <div class="actions">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" id="submit-step1">Submit</button>
           <button type="button" class="btn btn-secondary" id="skip-step1">Skip — no thanks</button>
         </div>
       </form>
     </div>
 
     <div id="panel-step2" class="panel" role="region" aria-labelledby="step2-title" hidden>
+      <p class="step-badge">Step 2 of 2 — optional</p>
       <h1 id="step2-title">Help us improve PageDrop</h1>
-      <p class="lead">Optional — about 2 minutes. Thank you for the quick feedback already.</p>
+      <p class="lead">About 2 more minutes. Thank you for the quick feedback already.</p>
 
       <div id="accident-notice" class="notice notice-success" hidden>
         <p style="margin-bottom: 10px;">Sounds like this was an accident. You can reinstall PageDrop anytime.</p>
@@ -356,7 +382,7 @@
         </fieldset>
 
         <div class="actions">
-          <button type="submit" class="btn btn-primary">Submit feedback</button>
+          <button type="submit" class="btn btn-primary" id="submit-step2">Submit feedback</button>
           <button type="button" class="btn btn-secondary" id="skip-step2">No thanks, I'm done</button>
         </div>
       </form>
@@ -365,6 +391,10 @@
     <div id="panel-done" class="panel" role="status" hidden>
       <h1>Thank you</h1>
       <p class="lead">Your feedback helps us build a better screenshot tool. We appreciate your time.</p>
+      <div id="done-reinstall" class="notice notice-success" hidden>
+        <p style="margin-bottom: 10px;">Changed your mind? You can reinstall PageDrop anytime.</p>
+        <a id="done-reinstall-link" class="btn btn-primary" href="#">Reinstall PageDrop</a>
+      </div>
       <div class="actions">
         <button type="button" class="btn btn-secondary" id="close-done">Close this tab</button>
       </div>
@@ -372,7 +402,12 @@
 
     <footer>
       <p>Feedback is voluntary and not linked to your screenshots or browsing history.</p>
-      <p><a href="index.html">Privacy policy</a></p>
+      <p>
+        <a href="home.html">About PageDrop</a>
+        ·
+        <a href="index.html">Privacy policy</a>
+      </p>
+      <p id="version-foot" class="legend-optional" style="margin-top: 8px;" hidden></p>
     </footer>
   </div>
 
@@ -407,6 +442,7 @@
     const params = new URLSearchParams(window.location.search);
     const extensionVersion = params.get('v') || '';
     const urlSecretKey = params.get('key') || '';
+    const daysSinceInstall = params.get('days') || '';
 
     const config = window.PAGEDROP_SURVEY || {};
     const secretKey = urlSecretKey || config.secretKey || '';
@@ -460,12 +496,20 @@
     }
 
     function collectStep1Answers() {
+      const reason = getRadioValue('reason');
+      let shortNote = document.getElementById('short-note').value.trim();
+      if (reason === 'other') {
+        const otherNote = document.getElementById('other-note').value.trim();
+        if (otherNote) {
+          shortNote = shortNote ? shortNote + ' — ' + otherNote : otherNote;
+        }
+      }
       return {
         submission_id: submissionId,
-        reason: getRadioValue('reason'),
+        reason,
         duration: getRadioValue('duration'),
         mode: getRadioValue('mode'),
-        short_note: document.getElementById('short-note').value.trim(),
+        short_note: shortNote,
       };
     }
 
@@ -497,6 +541,7 @@
         key: secretKey,
         step: String(step),
         version: extensionVersion,
+        days_since_install: daysSinceInstall,
         answers,
       });
 
@@ -557,6 +602,37 @@
 
     function showDone() {
       showPanel('panel-done');
+      setupReinstallLink('done-reinstall', 'done-reinstall-link');
+    }
+
+    function setupReinstallLink(noticeId, linkId) {
+      const notice = document.getElementById(noticeId);
+      const link = document.getElementById(linkId);
+      const storeUrl = (config.chromeWebStoreUrl || '').trim();
+      if (!notice || !link) return;
+      if (storeUrl) {
+        link.href = storeUrl;
+        notice.hidden = false;
+      } else {
+        notice.hidden = true;
+      }
+    }
+
+    function setSubmitting(buttonId, submitting) {
+      const btn = document.getElementById(buttonId);
+      if (!btn) return;
+      btn.disabled = submitting;
+      if (buttonId === 'submit-step1') {
+        btn.textContent = submitting ? 'Submitting…' : 'Submit';
+      } else if (buttonId === 'submit-step2') {
+        btn.textContent = submitting ? 'Submitting…' : 'Submit feedback';
+      }
+    }
+
+    function toggleOtherReasonField() {
+      const isOther = getRadioValue('reason') === 'other';
+      const field = document.getElementById('other-reason-field');
+      if (field) field.hidden = !isOther;
     }
 
     function maybeShowAccidentNotice(reason) {
@@ -568,10 +644,10 @@
         return;
       }
       notice.hidden = false;
-      if (storeUrl) {
+      if (storeUrl && link) {
         link.href = storeUrl;
         link.hidden = false;
-      } else {
+      } else if (link) {
         link.hidden = true;
       }
     }
@@ -585,6 +661,16 @@
       document.getElementById('config-warn').hidden = false;
     }
 
+    if (extensionVersion) {
+      const versionFoot = document.getElementById('version-foot');
+      if (versionFoot) {
+        versionFoot.textContent = 'PageDrop v' + extensionVersion;
+        versionFoot.hidden = false;
+      }
+    }
+
+    document.getElementById('reason-list').addEventListener('change', toggleOtherReasonField);
+
     document.getElementById('form-step1').addEventListener('submit', (event) => {
       event.preventDefault();
       const answers = collectStep1Answers();
@@ -594,7 +680,10 @@
       }
       document.getElementById('reason-error').classList.remove('is-visible');
       step1Answers = answers;
-      submitSurvey(1, answers);
+      setSubmitting('submit-step1', true);
+      submitSurvey(1, answers).finally(() => {
+        setSubmitting('submit-step1', false);
+      });
       maybeShowAccidentNotice(answers.reason);
       showPanel('panel-step2');
     });
@@ -606,8 +695,11 @@
     document.getElementById('form-step2').addEventListener('submit', (event) => {
       event.preventDefault();
       const answers = collectStep2Answers();
-      submitSurvey(2, answers);
-      showDone();
+      setSubmitting('submit-step2', true);
+      submitSurvey(2, answers).finally(() => {
+        setSubmitting('submit-step2', false);
+        showDone();
+      });
     });
 
     document.getElementById('skip-step2').addEventListener('click', () => {
