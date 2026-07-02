@@ -36,7 +36,7 @@ Set-Location $PSScriptRoot
 
 if (-not (Test-Path '.git')) {
   git init -b $PagesBranch
-  git add index.html uninstall.html survey-config.js apps-script/
+  git add index.html home.html store-url.js uninstall.html survey-config.js apps-script/
   git commit -m 'Add PageDrop privacy policy and uninstall survey.'
 }
 
@@ -79,3 +79,4 @@ Write-Host "Public URL: $pagesUrl"
 Write-Host ''
 Write-Host 'Paste this URL into the Chrome Web Store Privacy policy field.'
 Write-Host "Uninstall survey: ${pagesUrl}uninstall.html"
+Write-Host "Landing page:    ${pagesUrl}home.html"
