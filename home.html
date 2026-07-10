@@ -183,23 +183,32 @@
       justify-content: center;
     }
 
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
     .brand-name {
       font-size: 22px;
       font-weight: 700;
       color: #0f1923;
       letter-spacing: -0.4px;
-      text-align: left;
+      line-height: 1.2;
     }
 
     .brand-tag {
       font-size: 13px;
       color: #4b5563;
       font-weight: 400;
+      line-height: 1.35;
+      margin-top: 2px;
     }
 
     .version-badge {
       display: inline-block;
-      margin: 6px 0 2px;
+      margin: 8px 0 0;
       padding: 3px 10px;
       font-size: 12px;
       font-weight: 600;
@@ -431,10 +440,10 @@
             <circle cx="11" cy="11" r="1.2" fill="#00e5a0"/>
           </svg>
         </div>
-        <div>
+        <div class="brand-text">
           <div class="brand-name">PageDrop</div>
-          <p class="version-badge" aria-label="Current version">Latest release: v1.4.0</p>
           <div class="brand-tag">Full page &amp; region screenshots for Chrome</div>
+          <p class="version-badge" aria-label="Current version">Latest release: v1.4.0</p>
         </div>
       </div>
 
