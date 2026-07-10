@@ -166,14 +166,18 @@
       padding-top: 12px;
     }
 
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
+    .brand-area {
+      display: inline-grid;
+      grid-template-columns: 48px 1fr;
+      column-gap: 12px;
+      row-gap: 2px;
+      align-items: start;
+      text-align: left;
       margin-bottom: 20px;
     }
 
     .brand-icon {
+      grid-row: 1 / 3;
       width: 48px;
       height: 48px;
       background: #0f1923;
@@ -183,14 +187,8 @@
       justify-content: center;
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-    }
-
     .brand-name {
+      grid-column: 2;
       font-size: 22px;
       font-weight: 700;
       color: #0f1923;
@@ -199,41 +197,50 @@
     }
 
     .brand-tag {
+      grid-column: 2;
       font-size: 13px;
       color: #4b5563;
       font-weight: 400;
       line-height: 1.35;
-      margin-top: 2px;
     }
 
     .version-badge {
-      display: inline-block;
-      margin: 8px 0 0;
-      padding: 3px 10px;
+      grid-column: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 6px 0 0;
+      padding: 0;
       font-size: 12px;
       font-weight: 600;
       color: #15803d;
-      background: #dcfce7;
-      border: 1px solid #86efac;
-      border-radius: 999px;
-      animation: badge-pulse 2.4s ease-in-out infinite;
+      background: transparent;
+      border: none;
+      line-height: 1.3;
     }
 
-    @keyframes badge-pulse {
+    .version-badge-dot {
+      flex-shrink: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #34c759;
+      animation: dot-glow 2.4s ease-in-out infinite;
+    }
+
+    @keyframes dot-glow {
       0%, 100% {
-        box-shadow: 0 0 0 0 rgba(52, 199, 89, 0.35);
-        background: #dcfce7;
-        border-color: #86efac;
+        box-shadow: 0 0 0 0 rgba(52, 199, 89, 0.5);
+        opacity: 1;
       }
       50% {
-        box-shadow: 0 0 0 6px rgba(52, 199, 89, 0);
-        background: #bbf7d0;
-        border-color: #34c759;
+        box-shadow: 0 0 0 5px rgba(52, 199, 89, 0);
+        opacity: 0.75;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .version-badge { animation: none; }
+      .version-badge-dot { animation: none; }
     }
 
     h1 {
@@ -430,7 +437,7 @@
 <body>
   <div class="page">
     <header>
-      <div class="brand">
+      <div class="brand-area">
         <div class="brand-icon" aria-hidden="true">
           <svg width="28" height="28" viewBox="0 0 22 22" fill="none" aria-hidden="true" focusable="false">
             <path d="M4 9 L4 4 L9 4" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -440,11 +447,12 @@
             <circle cx="11" cy="11" r="1.2" fill="#00e5a0"/>
           </svg>
         </div>
-        <div class="brand-text">
-          <div class="brand-name">PageDrop</div>
-          <div class="brand-tag">Full page &amp; region screenshots for Chrome</div>
-          <p class="version-badge" aria-label="Current version">Latest release: v1.4.0</p>
-        </div>
+        <div class="brand-name">PageDrop</div>
+        <div class="brand-tag">Full page &amp; region screenshots for Chrome</div>
+        <p class="version-badge" aria-label="Current version">
+          <span class="version-badge-dot" aria-hidden="true"></span>
+          New in v1.4.0
+        </p>
       </div>
 
       <h1>Full page screenshot &amp; screen capture for Chrome</h1>
