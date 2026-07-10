@@ -199,14 +199,32 @@
 
     .version-badge {
       display: inline-block;
-      margin-bottom: 16px;
-      padding: 4px 12px;
-      font-size: 13px;
+      margin: 6px 0 2px;
+      padding: 3px 10px;
+      font-size: 12px;
       font-weight: 600;
       color: #15803d;
       background: #dcfce7;
-      border: 1px solid #bbf7d0;
+      border: 1px solid #86efac;
       border-radius: 999px;
+      animation: badge-pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes badge-pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(52, 199, 89, 0.35);
+        background: #dcfce7;
+        border-color: #86efac;
+      }
+      50% {
+        box-shadow: 0 0 0 6px rgba(52, 199, 89, 0);
+        background: #bbf7d0;
+        border-color: #34c759;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .version-badge { animation: none; }
     }
 
     h1 {
@@ -415,11 +433,10 @@
         </div>
         <div>
           <div class="brand-name">PageDrop</div>
+          <p class="version-badge" aria-label="Current version">Latest release: v1.4.0</p>
           <div class="brand-tag">Full page &amp; region screenshots for Chrome</div>
         </div>
       </div>
-
-      <p class="version-badge" aria-label="Current version">Latest release: v1.4.0</p>
 
       <h1>Full page screenshot &amp; screen capture for Chrome</h1>
       <p class="lead">
