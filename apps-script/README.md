@@ -30,29 +30,29 @@ One-time setup to store voluntary uninstall feedback in a Google Sheet.
 ## 5. Test
 
 1. Open the web app URL in a browser — you should see `{"ok":true,"service":"pagedrop-uninstall-survey"}`.
-2. Open `uninstall.html` locally or on GitHub Pages, submit Step 1, confirm a row appears in the Sheet.
+2. Open `uninstall.html` locally or on GitHub Pages, submit the form, confirm a row appears in the Sheet.
 
 ## Sheet columns
 
-| Column | Step 1 | Step 2 |
-|--------|--------|--------|
-| timestamp | yes | yes |
-| submission_id | yes | same ID links both rows |
-| step | `1` | `2` |
-| reason | yes | — |
-| duration | yes | yes (if re-submitted) |
-| mode | yes | yes (if re-submitted) |
-| short_note | yes | — |
-| goal | — | yes |
-| frustration | — | yes |
-| improvement | — | yes |
-| rating | — | yes |
-| email | — | optional |
-| version | from URL `?v=` | same |
-| days_since_install | from URL `?days=` | same (days since first install) |
-| abandoned | `yes` if tab closed on step 1 with answers but no Submit | — |
+| Column | Collected |
+|--------|-----------|
+| timestamp | yes |
+| submission_id | yes |
+| step | always `1` (single-page survey) |
+| reason | required |
+| duration | unused (kept empty for existing Sheets) |
+| mode | unused (kept empty for existing Sheets) |
+| short_note | optional |
+| goal | unused (kept empty for existing Sheets) |
+| frustration | unused (kept empty for existing Sheets) |
+| improvement | unused (kept empty for existing Sheets) |
+| rating | optional (1–5) |
+| email | optional |
+| version | from URL `?v=` |
+| days_since_install | from URL `?days=` |
+| abandoned | `yes` if tab closed with answers but no Submit |
 
-**Existing Sheets:** If you already have a Responses tab, add **`days_since_install`** and **`abandoned`** column headers after `version`, then redeploy the Apps Script web app.
+**Existing Sheets:** Keep the current column headers. New responses leave unused columns blank. If you already have a Responses tab, ensure **`days_since_install`** and **`abandoned`** exist after `version`, then redeploy the Apps Script web app.
 
 ## Security note
 

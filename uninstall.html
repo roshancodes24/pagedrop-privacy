@@ -302,16 +302,20 @@
       <span class="brand-name">PageDrop</span>
     </div>
 
-    <div id="panel-step1" class="panel is-active" role="region" aria-labelledby="step1-title">
-      <p class="step-badge">Step 1 of 2</p>
-      <h1 id="step1-title">Sorry to see you go</h1>
-      <p class="lead">PageDrop was uninstalled. A quick answer (about 30 seconds) helps us improve.</p>
+    <div id="panel-form" class="panel is-active" role="region" aria-labelledby="form-title">
+      <h1 id="form-title">Sorry to see you go</h1>
+      <p class="lead">PageDrop was uninstalled. A quick answer helps us improve.</p>
 
       <div id="config-warn" class="notice notice-warn" hidden>
         Feedback storage is not configured yet. You can still close this tab — your answers will not be saved.
       </div>
 
-      <form id="form-step1" novalidate>
+      <div id="accident-notice" class="notice notice-success" hidden>
+        <p style="margin-bottom: 10px;">Sounds like this was an accident. You can reinstall PageDrop anytime.</p>
+        <a id="reinstall-link" class="btn btn-primary" href="#" hidden>Reinstall PageDrop</a>
+      </div>
+
+      <form id="form-survey" novalidate>
         <fieldset>
           <legend>Why are you uninstalling? <span aria-hidden="true">*</span></legend>
           <ul class="option-list" id="reason-list"></ul>
@@ -319,56 +323,8 @@
         </fieldset>
 
         <fieldset>
-          <legend>How long did you use PageDrop? <span class="legend-optional">(optional)</span></legend>
-          <ul class="option-list" id="duration-list"></ul>
-        </fieldset>
-
-        <fieldset>
-          <legend>Which mode did you use most? <span class="legend-optional">(optional)</span></legend>
-          <ul class="option-list" id="mode-list"></ul>
-        </fieldset>
-
-        <fieldset>
           <legend for="short-note">Anything else in one line? <span class="legend-optional">(optional)</span></legend>
           <input type="text" id="short-note" name="short_note" maxlength="500" autocomplete="off" />
-        </fieldset>
-
-        <fieldset id="other-reason-field" hidden>
-          <legend for="other-note">Tell us more <span class="legend-optional">(optional)</span></legend>
-          <input type="text" id="other-note" name="other_note" maxlength="500" autocomplete="off" placeholder="What was the main reason?" />
-        </fieldset>
-
-        <div class="actions">
-          <button type="submit" class="btn btn-primary" id="submit-step1">Submit</button>
-          <button type="button" class="btn btn-secondary" id="skip-step1">Skip — no thanks</button>
-        </div>
-      </form>
-    </div>
-
-    <div id="panel-step2" class="panel" role="region" aria-labelledby="step2-title" hidden>
-      <p class="step-badge">Step 2 of 2 — optional</p>
-      <h1 id="step2-title">Help us improve PageDrop</h1>
-      <p class="lead">About 2 more minutes. Thank you for the quick feedback already.</p>
-
-      <div id="accident-notice" class="notice notice-success" hidden>
-        <p style="margin-bottom: 10px;">Sounds like this was an accident. You can reinstall PageDrop anytime.</p>
-        <a id="reinstall-link" class="btn btn-primary" href="#" hidden>Reinstall PageDrop</a>
-      </div>
-
-      <form id="form-step2" novalidate>
-        <fieldset>
-          <legend for="goal">What were you trying to capture or accomplish?</legend>
-          <textarea id="goal" name="goal" rows="3" maxlength="1000"></textarea>
-        </fieldset>
-
-        <fieldset>
-          <legend for="frustration">What frustrated you most?</legend>
-          <textarea id="frustration" name="frustration" rows="3" maxlength="2000"></textarea>
-        </fieldset>
-
-        <fieldset>
-          <legend for="improvement">What one change would make you try PageDrop again?</legend>
-          <textarea id="improvement" name="improvement" rows="3" maxlength="2000"></textarea>
         </fieldset>
 
         <fieldset>
@@ -377,13 +333,13 @@
         </fieldset>
 
         <fieldset>
-          <legend for="email">Email for follow-up <span class="legend-optional">(optional, voluntary)</span></legend>
+          <legend for="email">Email for follow-up <span class="legend-optional">(optional)</span></legend>
           <input type="email" id="email" name="email" maxlength="254" autocomplete="email" />
         </fieldset>
 
         <div class="actions">
-          <button type="submit" class="btn btn-primary" id="submit-step2">Submit feedback</button>
-          <button type="button" class="btn btn-secondary" id="skip-step2">No thanks, I'm done</button>
+          <button type="submit" class="btn btn-primary" id="submit-survey">Submit</button>
+          <button type="button" class="btn btn-secondary" id="skip-survey">Skip — no thanks</button>
         </div>
       </form>
     </div>
@@ -425,20 +381,6 @@
       { value: 'other', label: 'Other' },
     ];
 
-    const DURATION_OPTIONS = [
-      { value: 'first_try', label: 'First try today' },
-      { value: 'less_than_week', label: 'Less than a week' },
-      { value: 'one_to_four_weeks', label: '1–4 weeks' },
-      { value: 'one_plus_months', label: '1+ months' },
-    ];
-
-    const MODE_OPTIONS = [
-      { value: 'viewport', label: 'Print Page' },
-      { value: 'fullpage', label: 'Scroll & Capture' },
-      { value: 'region', label: 'Snip Area' },
-      { value: 'never_worked', label: 'Never got it to work' },
-    ];
-
     const params = new URLSearchParams(window.location.search);
     const extensionVersion = params.get('v') || '';
     const urlSecretKey = params.get('key') || '';
@@ -449,9 +391,8 @@
     const appsScriptUrl = (config.appsScriptUrl || '').trim();
 
     let submissionId = createSubmissionId();
-    let step1Answers = {};
-    let step1Submitted = false;
-    let partialStep1Sent = false;
+    let surveySubmitted = false;
+    let partialSent = false;
     let optedOut = false;
 
     function createSubmissionId() {
@@ -498,34 +439,11 @@
       return checked ? checked.value : '';
     }
 
-    function collectStep1Answers() {
-      const reason = getRadioValue('reason');
-      let shortNote = document.getElementById('short-note').value.trim();
-      if (reason === 'other') {
-        const otherNote = document.getElementById('other-note').value.trim();
-        if (otherNote) {
-          shortNote = shortNote ? shortNote + ' — ' + otherNote : otherNote;
-        }
-      }
+    function collectAnswers() {
       return {
         submission_id: submissionId,
-        reason,
-        duration: getRadioValue('duration'),
-        mode: getRadioValue('mode'),
-        short_note: shortNote,
-      };
-    }
-
-    function collectStep2Answers() {
-      return {
-        submission_id: submissionId,
-        reason: step1Answers.reason || '',
-        duration: step1Answers.duration || '',
-        mode: step1Answers.mode || '',
-        short_note: step1Answers.short_note || '',
-        goal: document.getElementById('goal').value.trim(),
-        frustration: document.getElementById('frustration').value.trim(),
-        improvement: document.getElementById('improvement').value.trim(),
+        reason: getRadioValue('reason'),
+        short_note: document.getElementById('short-note').value.trim(),
         rating: getRadioValue('rating'),
         email: document.getElementById('email').value.trim(),
       };
@@ -535,31 +453,33 @@
       return Boolean(appsScriptUrl && secretKey);
     }
 
-    function hasPartialStep1Answers(answers) {
+    function hasPartialAnswers(answers) {
       return Boolean(
         answers.reason ||
-        answers.duration ||
-        answers.mode ||
-        answers.short_note
+        answers.short_note ||
+        answers.rating ||
+        answers.email
       );
     }
 
-    function buildSurveyPayload(step, answers) {
+    function buildSurveyPayload(answers, abandoned) {
       return JSON.stringify({
         key: secretKey,
-        step: String(step),
+        step: '1',
         version: extensionVersion,
         days_since_install: daysSinceInstall,
-        answers,
+        answers: abandoned
+          ? Object.assign({}, answers, { abandoned: true })
+          : answers,
       });
     }
 
-    function submitSurvey(step, answers, options) {
+    function submitSurvey(answers, options) {
       if (!isSurveyConfigured()) {
         return Promise.resolve({ ok: false, skipped: true });
       }
 
-      const payload = buildSurveyPayload(step, answers);
+      const payload = buildSurveyPayload(answers, false);
       const fetchOptions = {
         method: 'POST',
         mode: 'no-cors',
@@ -578,18 +498,18 @@
         .catch(() => submitSurveyViaForm(payload));
     }
 
-    function sendPartialStep1OnLeave() {
+    function sendPartialOnLeave() {
       if (!isSurveyConfigured()) return;
-      if (partialStep1Sent || step1Submitted || optedOut) return;
+      if (partialSent || surveySubmitted || optedOut) return;
 
-      const step1Panel = document.getElementById('panel-step1');
-      if (!step1Panel || step1Panel.hidden) return;
+      const formPanel = document.getElementById('panel-form');
+      if (!formPanel || formPanel.hidden) return;
 
-      const answers = collectStep1Answers();
-      if (!hasPartialStep1Answers(answers)) return;
+      const answers = collectAnswers();
+      if (!hasPartialAnswers(answers)) return;
 
-      partialStep1Sent = true;
-      const payload = buildSurveyPayload(1, Object.assign({}, answers, { abandoned: true }));
+      partialSent = true;
+      const payload = buildSurveyPayload(answers, true);
 
       try {
         fetch(appsScriptUrl, {
@@ -642,7 +562,7 @@
     }
 
     function showPanel(panelId) {
-      const panels = ['panel-step1', 'panel-step2', 'panel-done'];
+      const panels = ['panel-form', 'panel-done'];
       for (const id of panels) {
         const el = document.getElementById(id);
         const active = id === panelId;
@@ -652,9 +572,11 @@
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
 
-    function showDone() {
+    function showDone(reason) {
       showPanel('panel-done');
-      setupReinstallLink('done-reinstall', 'done-reinstall-link');
+      if (reason === 'accident') {
+        setupReinstallLink('done-reinstall', 'done-reinstall-link');
+      }
     }
 
     function setupReinstallLink(noticeId, linkId) {
@@ -670,21 +592,11 @@
       }
     }
 
-    function setSubmitting(buttonId, submitting) {
-      const btn = document.getElementById(buttonId);
+    function setSubmitting(submitting) {
+      const btn = document.getElementById('submit-survey');
       if (!btn) return;
       btn.disabled = submitting;
-      if (buttonId === 'submit-step1') {
-        btn.textContent = submitting ? 'Submitting…' : 'Submit';
-      } else if (buttonId === 'submit-step2') {
-        btn.textContent = submitting ? 'Submitting…' : 'Submit feedback';
-      }
-    }
-
-    function toggleOtherReasonField() {
-      const isOther = getRadioValue('reason') === 'other';
-      const field = document.getElementById('other-reason-field');
-      if (field) field.hidden = !isOther;
+      btn.textContent = submitting ? 'Submitting…' : 'Submit';
     }
 
     function maybeShowAccidentNotice(reason) {
@@ -705,8 +617,6 @@
     }
 
     buildRadioList('reason-list', 'reason', REASON_OPTIONS);
-    buildRadioList('duration-list', 'duration', DURATION_OPTIONS);
-    buildRadioList('mode-list', 'mode', MODE_OPTIONS);
     buildRatingRow();
 
     if (!isSurveyConfigured()) {
@@ -721,50 +631,36 @@
       }
     }
 
-    document.getElementById('reason-list').addEventListener('change', toggleOtherReasonField);
+    document.getElementById('reason-list').addEventListener('change', () => {
+      maybeShowAccidentNotice(getRadioValue('reason'));
+    });
 
-    document.getElementById('form-step1').addEventListener('submit', (event) => {
+    document.getElementById('form-survey').addEventListener('submit', (event) => {
       event.preventDefault();
-      const answers = collectStep1Answers();
+      const answers = collectAnswers();
       if (!answers.reason) {
         document.getElementById('reason-error').classList.add('is-visible');
         return;
       }
       document.getElementById('reason-error').classList.remove('is-visible');
-      step1Answers = answers;
-      step1Submitted = true;
-      setSubmitting('submit-step1', true);
-      submitSurvey(1, answers).finally(() => {
-        setSubmitting('submit-step1', false);
+      surveySubmitted = true;
+      setSubmitting(true);
+      submitSurvey(answers).finally(() => {
+        setSubmitting(false);
+        showDone(answers.reason);
       });
-      maybeShowAccidentNotice(answers.reason);
-      showPanel('panel-step2');
     });
 
-    document.getElementById('skip-step1').addEventListener('click', () => {
+    document.getElementById('skip-survey').addEventListener('click', () => {
       optedOut = true;
-      showDone();
-    });
-
-    document.getElementById('form-step2').addEventListener('submit', (event) => {
-      event.preventDefault();
-      const answers = collectStep2Answers();
-      setSubmitting('submit-step2', true);
-      submitSurvey(2, answers).finally(() => {
-        setSubmitting('submit-step2', false);
-        showDone();
-      });
-    });
-
-    document.getElementById('skip-step2').addEventListener('click', () => {
-      showDone();
+      showDone(getRadioValue('reason'));
     });
 
     document.getElementById('close-done').addEventListener('click', () => {
       window.close();
     });
 
-    window.addEventListener('pagehide', sendPartialStep1OnLeave);
+    window.addEventListener('pagehide', sendPartialOnLeave);
   </script>
 </body>
 </html>
