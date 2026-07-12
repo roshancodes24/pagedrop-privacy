@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PageDrop – Full Page Screenshot &amp; Screen Capture Chrome Extension</title>
-  <meta name="description" content="PageDrop is a free Chrome extension for full-page, visible tab, and region screenshots. Annotate, crop, blur sensitive data, and export PNG, JPEG, or PDF. Privacy-first with activeTab only — v1.4.0." />
+  <meta name="description" content="PageDrop is a free Chrome extension for full-page, visible tab, and region screenshots. Annotate, crop, blur sensitive data, and export PNG, JPEG, or PDF. Privacy-first with activeTab only — v1.5.0." />
   <meta name="keywords" content="full page screenshot chrome extension, scrolling screenshot, screen capture, annotate screenshot, blur redact, export pdf jpeg png, snip tool, webpage capture, PageDrop" />
   <meta name="author" content="PageDrop" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
@@ -52,7 +52,7 @@
         "name": "PageDrop",
         "applicationCategory": "BrowserApplication",
         "operatingSystem": "Chrome",
-        "softwareVersion": "1.4.0",
+        "softwareVersion": "1.5.0",
         "datePublished": "2026-07-08",
         "description": "Full-page, visible tab, and region screenshot Chrome extension with built-in editor. Annotate, crop, blur/redact sensitive areas, and export as PNG, JPEG, or PDF. Uses activeTab permission only.",
         "offers": {
@@ -94,7 +94,15 @@
             "name": "How do I take a full-page screenshot in Chrome with PageDrop?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Install PageDrop from the Chrome Web Store, open any normal website, then click the PageDrop toolbar icon and choose Scroll & Capture, or press Alt+Shift+F on Windows/Linux (Option+Shift+F on Mac). PageDrop scrolls the page automatically and stitches the result into one image."
+              "text": "Install PageDrop from the Chrome Web Store, open any normal website, then click the PageDrop toolbar icon and choose Scroll & Capture, or press Alt+G on Windows/Linux (Option+G on Mac). PageDrop scrolls the page automatically and stitches the result into one image."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why are PageDrop keyboard shortcuts not working?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Open chrome://extensions/shortcuts and check that PageDrop has keys assigned for Print Page, Scroll & Capture, and Snip Area. If any shortcut is blank, click it and assign Alt+P, Alt+G, or Alt+S (or your preferred keys). If shortcuts still do not work, remove PageDrop and reinstall it so Chrome can apply the default bindings again."
             }
           },
           {
@@ -126,7 +134,7 @@
             "name": "What keyboard shortcuts does PageDrop use?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Default shortcuts: Alt+Shift+V for visible tab (Print Page), Alt+Shift+F for full-page (Scroll & Capture), and Alt+Shift+S for region (Snip Area). On Mac, use Option+Shift+V, Option+Shift+F, and Option+Shift+S. Customize them at chrome://extensions/shortcuts."
+              "text": "Default shortcuts: Alt+P for visible tab (Print Page), Alt+G for full-page (Scroll & Capture), and Alt+S for region (Snip Area). On Mac, use Option+P, Option+G, and Option+S. Customize them at chrome://extensions/shortcuts."
             }
           },
           {
@@ -389,23 +397,54 @@
     }
 
     .faq-item {
-      margin-bottom: 20px;
-      padding-bottom: 20px;
+      margin-bottom: 0;
       border-bottom: 1px solid #f3f4f6;
     }
 
     .faq-item:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
       border-bottom: none;
     }
 
-    .faq-item h3 {
+    .faq-item summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0;
       font-size: 16px;
-      margin-bottom: 6px;
+      font-weight: 600;
+      color: #111827;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "";
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid #6b7280;
+      border-bottom: 2px solid #6b7280;
+      transform: rotate(45deg);
+      transition: transform 0.15s ease;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(-135deg);
+      margin-top: 4px;
+    }
+
+    .faq-item summary:hover {
+      color: #0b57d0;
     }
 
     .faq-item p {
+      margin: 0 0 14px;
       color: #374151;
       font-size: 15px;
       line-height: 1.55;
@@ -451,7 +490,7 @@
         <div class="brand-tag">Full page &amp; region screenshots for Chrome</div>
         <p class="version-badge" aria-label="Current version">
           <span class="version-badge-dot" aria-hidden="true"></span>
-          New in v1.4.0
+          New in v1.5.0
         </p>
       </div>
 
@@ -476,13 +515,11 @@
 
     <main>
       <section class="card whats-new" aria-labelledby="whats-new-heading">
-        <h2 id="whats-new-heading">What&rsquo;s new in v1.4.0</h2>
+        <h2 id="whats-new-heading">What&rsquo;s new in v1.5.0</h2>
         <ul>
-          <li><strong>PNG or JPEG export</strong> — choose format from the Download menu in the editor</li>
-          <li><strong>Multi-page PDF</strong> — combine all parts of a split long-page capture into one PDF, or export the current part only</li>
-          <li><strong>Editor in a browser tab</strong> — opens in the same window for a smoother workflow</li>
-          <li><strong>More reliable shortcuts</strong> — keyboard shortcuts and right-click captures work better under Manifest V3</li>
-          <li><strong>Snip Area shortcut</strong> — now <code>Alt+Shift+S</code> (avoids conflict with Chrome Reading mode)</li>
+          <li><strong>20 languages</strong> — UI follows your Chrome language (popup, editor, menus, and errors)</li>
+          <li><strong>Updated shortcuts</strong> — <code>Alt+P</code> Print Page, <code>Alt+G</code> Scroll &amp; Capture, <code>Alt+S</code> Snip Area</li>
+          <li><strong>Shortcut help</strong> — if a key is unassigned, the popup shows how to set it at <code>chrome://extensions/shortcuts</code></li>
         </ul>
       </section>
 
@@ -527,17 +564,17 @@
         <div class="shortcut-group">
           <h3>Windows &amp; Linux</h3>
           <ul>
-            <li><code>Alt+Shift+V</code> — Print Page (visible tab screenshot)</li>
-            <li><code>Alt+Shift+F</code> — Scroll &amp; Capture (full page)</li>
-            <li><code>Alt+Shift+S</code> — Snip Area (region)</li>
+            <li><code>Alt+P</code> — Print Page (visible tab screenshot)</li>
+            <li><code>Alt+G</code> — Scroll &amp; Capture (full page)</li>
+            <li><code>Alt+S</code> — Snip Area (region)</li>
           </ul>
         </div>
         <div class="shortcut-group">
           <h3>Mac</h3>
           <ul>
-            <li><code>⌥⇧V</code> (Option + Shift + V) — Print Page</li>
-            <li><code>⌥⇧F</code> (Option + Shift + F) — Scroll &amp; Capture</li>
-            <li><code>⌥⇧S</code> (Option + Shift + S) — Snip Area</li>
+            <li><code>⌥P</code> (Option + P) — Print Page</li>
+            <li><code>⌥G</code> (Option + G) — Scroll &amp; Capture</li>
+            <li><code>⌥S</code> (Option + S) — Snip Area</li>
           </ul>
         </div>
       </section>
@@ -545,60 +582,70 @@
       <section class="card" aria-labelledby="faq-heading">
         <h2 id="faq-heading">Frequently asked questions</h2>
 
-        <article class="faq-item">
-          <h3>What is PageDrop?</h3>
+        <details class="faq-item">
+          <summary>What is PageDrop?</summary>
           <p>
             PageDrop is a free Chrome extension for capturing visible tabs, full scrollable web pages,
             or custom screen regions. Every capture opens in a built-in editor where you can annotate,
             crop, blur sensitive details, and export — all processed locally in your browser.
           </p>
-        </article>
+        </details>
 
-        <article class="faq-item">
-          <h3>How do I take a full-page screenshot in Chrome?</h3>
+        <details class="faq-item">
+          <summary>How do I take a full-page screenshot in Chrome?</summary>
           <p>
             Install PageDrop, open any normal website, then click the toolbar icon and choose
-            <strong>Scroll &amp; Capture</strong>, or press <code>Alt+Shift+F</code>
-            (Option+Shift+F on Mac). PageDrop scrolls automatically and stitches the page into one image.
+            <strong>Scroll &amp; Capture</strong>, or press <code>Alt+G</code>
+            (Option+G on Mac). PageDrop scrolls automatically and stitches the page into one image.
           </p>
-        </article>
+        </details>
 
-        <article class="faq-item">
-          <h3>Is PageDrop safe and private?</h3>
+        <details class="faq-item">
+          <summary>Keyboard shortcuts not working?</summary>
+          <p>
+            Open <code>chrome://extensions/shortcuts</code> and check that PageDrop has keys assigned for
+            Print Page, Scroll &amp; Capture, and Snip Area. If any shortcut is blank, click it and assign
+            <code>Alt+P</code>, <code>Alt+G</code>, or <code>Alt+S</code> (or your preferred keys).
+            If they still do not work, remove PageDrop and reinstall it so Chrome can apply the defaults again.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is PageDrop safe and private?</summary>
           <p>
             Yes. PageDrop uses <strong>activeTab</strong> permission only — no broad site access at install.
             Screenshots are processed locally and are not uploaded to external servers during normal use.
           </p>
-        </article>
+        </details>
 
-        <article class="faq-item">
-          <h3>Can PageDrop blur or redact sensitive information?</h3>
+        <details class="faq-item">
+          <summary>Can PageDrop blur or redact sensitive information?</summary>
           <p>
             Yes. Drag the blur/redact tool over any area to permanently pixelate emails, names, IDs,
             or other sensitive content before sharing or exporting.
           </p>
-        </article>
+        </details>
 
-        <article class="faq-item">
-          <h3>What file formats does PageDrop export?</h3>
+        <details class="faq-item">
+          <summary>What file formats does PageDrop export?</summary>
           <p>
             PNG (lossless), JPEG (smaller files), and PDF. When a very long page is split into multiple
             images, you can combine all parts into one multi-page PDF or export the current part only.
           </p>
-        </article>
+        </details>
 
-        <article class="faq-item">
-          <h3>What pages cannot be captured?</h3>
+        <details class="faq-item">
+          <summary>What pages cannot be captured?</summary>
           <p>
             PageDrop cannot capture <code>chrome://</code> pages, the Chrome Web Store, or the New Tab page.
             Open a normal website first. Refresh the page once (F5) after installing or updating.
           </p>
-        </article>
+        </details>
       </section>
     </main>
 
     <footer>
-      <p>© 2026 PageDrop · Version 1.4.0</p>
+      <p>© 2026 PageDrop · Version 1.5.0</p>
       <p style="margin-top: 8px;">
         <a href="index.html">Privacy policy</a>
         ·
