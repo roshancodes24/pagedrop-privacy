@@ -3,182 +3,487 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — PageDrop</title>
-  <meta name="robots" content="index, follow" />
+  <title>PageDrop – Full Page Screenshot &amp; Screen Capture Chrome Extension</title>
+  <meta name="description" content="PageDrop is a free Chrome extension for full-page, visible tab, and region screenshots. Annotate, crop, blur sensitive data, and export PNG, JPEG, or PDF. Privacy-first with activeTab only — v1.5.1." />
+  <meta name="keywords" content="full page screenshot chrome extension, scrolling screenshot, screen capture, annotate screenshot, blur redact, export pdf jpeg png, snip tool, webpage capture, PageDrop" />
+  <meta name="author" content="PageDrop" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <link rel="canonical" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+
+  <!-- Replace the content value below with your token from Google Search Console -->
+  <!-- Get it at: https://search.google.com/search-console → Add property → HTML tag -->
+  <!-- <meta name="google-site-verification" content="REPLACE_WITH_YOUR_VERIFICATION_TOKEN" /> -->
+
+  <meta property="og:title" content="PageDrop – Full Page Screenshot &amp; Screen Capture" />
+  <meta property="og:description" content="Capture full-page, visible, and region screenshots. Edit, blur sensitive data, export PNG/JPEG/PDF. Privacy-first Chrome extension — activeTab only." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://roshancodes24.github.io/pagedrop-privacy/" />
+  <meta property="og:site_name" content="PageDrop" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="PageDrop – Full Page Screenshot &amp; Screen Capture" />
+  <meta name="twitter:description" content="Free Chrome extension: full-page scrolling screenshots, region snip, built-in editor with blur/redact, PNG/JPEG/PDF export. Privacy-first." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://roshancodes24.github.io/pagedrop-privacy/",
+        "url": "https://roshancodes24.github.io/pagedrop-privacy/",
+        "name": "PageDrop – Full Page Screenshot & Screen Capture",
+        "description": "PageDrop is a privacy-first Chrome extension for capturing full-page, visible tab, and region screenshots with a built-in editor.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://roshancodes24.github.io/pagedrop-privacy/#website" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://roshancodes24.github.io/pagedrop-privacy/#website",
+        "url": "https://roshancodes24.github.io/pagedrop-privacy/",
+        "name": "PageDrop",
+        "publisher": { "@id": "https://roshancodes24.github.io/pagedrop-privacy/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://roshancodes24.github.io/pagedrop-privacy/#organization",
+        "name": "PageDrop",
+        "url": "https://roshancodes24.github.io/pagedrop-privacy/"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "PageDrop",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "softwareVersion": "1.5.1",
+        "datePublished": "2026-07-08",
+        "description": "Full-page, visible tab, and region screenshot Chrome extension with built-in editor. Annotate, crop, blur/redact sensitive areas, and export as PNG, JPEG, or PDF. Uses activeTab permission only.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Visible tab screenshot",
+          "Full-page scrolling capture",
+          "Region snip selection",
+          "Draw, shapes, arrows, and text annotations",
+          "Crop and rotate",
+          "Blur and redact sensitive content",
+          "Export PNG, JPEG, or PDF",
+          "Multi-page PDF for split long-page captures",
+          "Copy to clipboard",
+          "Keyboard shortcuts",
+          "Right-click context menu",
+          "Light and dark theme",
+          "Privacy-first activeTab permission"
+        ],
+        "downloadUrl": "https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp",
+        "browserRequirements": "Requires Google Chrome or Chromium-based browser with Manifest V3 extension support",
+        "sameAs": "https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is PageDrop?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PageDrop is a free Chrome extension that captures visible tabs, full scrollable web pages, or custom screen regions. Every capture opens in a built-in editor where you can annotate, crop, blur sensitive details, and export as PNG, JPEG, or PDF — all processed locally in your browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I take a full-page screenshot in Chrome with PageDrop?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Install PageDrop from the Chrome Web Store, open any normal website, then click the PageDrop toolbar icon and choose Scroll & Capture, or press Alt+G on Windows/Linux (Option+G on Mac). PageDrop scrolls the page automatically and stitches the result into one image."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why are PageDrop keyboard shortcuts not working?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Open chrome://extensions/shortcuts and check that PageDrop has keys assigned for Print Page, Scroll & Capture, and Snip Area. If any shortcut is blank, click it and assign Alt+P, Alt+G, or Alt+S (or your preferred keys). If shortcuts still do not work, remove PageDrop and reinstall it so Chrome can apply the default bindings again."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is PageDrop safe and private?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. PageDrop uses the activeTab permission only — it does not request broad access to every website at install time. Screenshots are processed locally and are not uploaded to external servers during normal use. The content script runs only when you start a capture."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can PageDrop blur or redact sensitive information?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The built-in editor includes a blur/redact tool. Drag over any area to permanently pixelate emails, names, IDs, or other sensitive content before sharing or exporting."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What file formats can PageDrop export?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PageDrop exports edited screenshots as PNG (lossless), JPEG (smaller file size), or PDF. When a very long page is split into multiple images, you can combine all parts into one multi-page PDF or export the current part only."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What keyboard shortcuts does PageDrop use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Default shortcuts: Alt+P for visible tab (Print Page), Alt+G for full-page (Scroll & Capture), and Alt+S for region (Snip Area). On Mac, use Option+P, Option+G, and Option+S. Customize them at chrome://extensions/shortcuts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What pages cannot be captured by PageDrop?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PageDrop cannot capture chrome:// pages, the Chrome Web Store, or the New Tab page. Open a normal website first. After installing or updating, refresh the page once (F5) before capturing."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-size: 16px;
-      line-height: 1.65;
+      line-height: 1.6;
       color: #1a1a2e;
-      background: #f7f8fa;
-      padding: 40px 20px 64px;
+      background: linear-gradient(180deg, #f0fdf4 0%, #f7f8fa 240px, #f7f8fa 100%);
+      padding: 32px 20px 64px;
     }
 
     .page {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
-      background: #ffffff;
-      border: 1px solid #e4e7ec;
-      border-radius: 12px;
-      padding: 48px 52px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
     }
 
     header {
-      margin-bottom: 36px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid #e4e7ec;
+      text-align: center;
+      margin-bottom: 40px;
+      padding-top: 12px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .brand-area {
+      display: inline-grid;
+      grid-template-columns: 48px 1fr;
+      column-gap: 12px;
+      row-gap: 2px;
+      align-items: start;
+      text-align: left;
       margin-bottom: 20px;
     }
 
     .brand-icon {
-      width: 36px;
-      height: 36px;
+      grid-row: 1 / 3;
+      width: 48px;
+      height: 48px;
       background: #0f1923;
-      border-radius: 8px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
     }
-
-    .brand-icon svg { display: block; }
 
     .brand-name {
-      font-size: 18px;
-      font-weight: 600;
-      color: #0f1923;
-      letter-spacing: -0.3px;
-    }
-
-    h1 {
-      font-size: 28px;
+      grid-column: 2;
+      font-size: 22px;
       font-weight: 700;
       color: #0f1923;
-      letter-spacing: -0.5px;
-      line-height: 1.25;
-      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+      line-height: 1.2;
     }
 
-    .meta {
-      font-size: 14px;
-      color: #6b7280;
-    }
-
-    h2 {
-      font-size: 18px;
-      font-weight: 600;
-      color: #0f1923;
-      margin: 0 0 16px;
-      padding-top: 28px;
-      letter-spacing: -0.2px;
+    .brand-tag {
+      grid-column: 2;
+      font-size: 13px;
+      color: #4b5563;
+      font-weight: 400;
       line-height: 1.35;
     }
 
-    main section:first-of-type h2 {
-      padding-top: 0;
+    .version-badge {
+      grid-column: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 6px 0 0;
+      padding: 0;
+      font-size: 12px;
+      font-weight: 600;
+      color: #15803d;
+      background: transparent;
+      border: none;
+      line-height: 1.3;
     }
 
-    main section {
-      margin-bottom: 8px;
+    .version-badge-dot {
+      flex-shrink: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #34c759;
+      animation: dot-glow 2.4s ease-in-out infinite;
     }
 
-    main section + section {
-      margin-top: 8px;
-      padding-top: 28px;
-      border-top: 1px solid #eef0f4;
+    @keyframes dot-glow {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(52, 199, 89, 0.5);
+        opacity: 1;
+      }
+      50% {
+        box-shadow: 0 0 0 5px rgba(52, 199, 89, 0);
+        opacity: 0.75;
+      }
     }
 
-    p {
-      margin: 0 0 16px;
+    @media (prefers-reduced-motion: reduce) {
+      .version-badge-dot { animation: none; }
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 36px);
+      font-weight: 800;
+      color: #0f1923;
+      letter-spacing: -0.6px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .lead {
+      font-size: 18px;
       color: #374151;
+      max-width: 600px;
+      margin: 0 auto 28px;
+      line-height: 1.55;
     }
 
-    p:last-child {
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: filter 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-primary {
+      background: #34c759;
+      color: #0a1a0f;
+      border: none;
+    }
+
+    .btn-primary:hover { filter: brightness(1.06); }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: #111827;
+      border: 1px solid #e4e7ec;
+    }
+
+    .btn-secondary:hover { background: #f9fafb; }
+
+    .cta-note {
+      font-size: 13px;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    .pin-tip {
+      max-width: 520px;
+      margin: 20px auto 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #374151;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #e4e7ec;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .pin-tip strong {
+      color: #0f1923;
+    }
+
+    .whats-new {
+      background: #fffbeb;
+      border-color: #fde68a;
+    }
+
+    .whats-new ul {
       margin-bottom: 0;
     }
 
+    .shortcut-group {
+      margin-bottom: 16px;
+    }
+
+    .shortcut-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .shortcut-group h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .shortcut-group ul {
+      margin-bottom: 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e4e7ec;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f1923;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
     ul {
-      margin: 0 0 16px 20px;
+      padding-left: 1.25rem;
       color: #374151;
     }
 
     li { margin-bottom: 8px; }
+
     li:last-child { margin-bottom: 0; }
 
-    .permission-list {
+    li strong { color: #111827; }
+
+    .privacy-callout {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+    }
+
+    .faq-item {
+      margin-bottom: 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item summary {
       list-style: none;
-      margin: 8px 0 0;
-      padding: 0;
-    }
-
-    .permission-list li {
-      padding: 16px 18px;
-      background: #f7f8fa;
-      border: 1px solid #e4e7ec;
-      border-radius: 8px;
-      margin-bottom: 12px;
-    }
-
-    .permission-list li:last-child { margin-bottom: 0; }
-
-    .permission-name {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0;
+      font-size: 16px;
       font-weight: 600;
-      font-size: 14px;
-      color: #0f1923;
-      margin-bottom: 8px;
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      color: #111827;
+      cursor: pointer;
+      user-select: none;
     }
 
-    .permission-desc {
-      display: block;
-      font-size: 14px;
-      color: #4b5563;
-      line-height: 1.6;
+    .faq-item summary::-webkit-details-marker {
+      display: none;
     }
 
-    a {
-      color: #007a55;
+    .faq-item summary::after {
+      content: "";
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid #6b7280;
+      border-bottom: 2px solid #6b7280;
+      transform: rotate(45deg);
+      transition: transform 0.15s ease;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(-135deg);
+      margin-top: 4px;
+    }
+
+    .faq-item summary:hover {
+      color: #0b57d0;
+    }
+
+    .faq-item p {
+      margin: 0 0 14px;
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    footer a {
+      color: #15803d;
       text-decoration: none;
     }
 
-    a:hover { text-decoration: underline; }
+    footer a:hover { text-decoration: underline; }
 
-    footer {
-      margin-top: 48px;
-      padding-top: 28px;
-      border-top: 1px solid #e4e7ec;
-      font-size: 13px;
-      color: #9ca3af;
-      text-align: center;
-    }
-
-    @media (max-width: 640px) {
-      body { padding: 24px 16px 48px; }
-      .page { padding: 32px 24px; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      background: #f3f4f6;
+      padding: 1px 5px;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
   <div class="page">
     <header>
-      <p style="margin-bottom: 16px; font-size: 13px;">
-        <a href="home.html">← About PageDrop</a>
-      </p>
-      <div class="brand">
+      <div class="brand-area">
         <div class="brand-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <svg width="28" height="28" viewBox="0 0 22 22" fill="none" aria-hidden="true" focusable="false">
             <path d="M4 9 L4 4 L9 4" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M13 4 L18 4 L18 9" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M18 13 L18 18 L13 18" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -186,199 +491,189 @@
             <circle cx="11" cy="11" r="1.2" fill="#00e5a0"/>
           </svg>
         </div>
-        <span class="brand-name">PageDrop</span>
+        <div class="brand-name">PageDrop</div>
+        <div class="brand-tag">Full page &amp; region screenshots for Chrome</div>
+        <p class="version-badge" aria-label="Current version">
+          <span class="version-badge-dot" aria-hidden="true"></span>
+          New in v1.5.1
+        </p>
       </div>
-      <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: July 1, 2026</p>
+
+      <h1>Full page screenshot &amp; screen capture for Chrome</h1>
+      <p class="lead">
+        PageDrop is a free Chrome extension that captures visible tabs, entire scrollable
+        pages, or any region. Annotate, crop, blur sensitive details, and export as
+        <strong>PNG</strong>, <strong>JPEG</strong>, or <strong>PDF</strong> — all with
+        privacy-first <code>activeTab</code> access only.
+      </p>
+
+      <nav class="cta-row" aria-label="Primary actions">
+        <a id="install-btn" class="btn btn-primary" href="https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp" rel="noopener">Add to Chrome — Free</a>
+        <a class="btn btn-secondary" href="privacy.html">Privacy policy</a>
+      </nav>
+      <p class="cta-note" id="install-note" hidden>Available on the Chrome Web Store.</p>
+      <p class="pin-tip">
+        <strong>Tip:</strong> After installing, click the <strong>puzzle piece</strong> (Extensions) in the Chrome toolbar,
+        then click the <strong>pin</strong> next to PageDrop so it stays visible for one-click access.
+      </p>
     </header>
 
     <main>
-      <section aria-labelledby="introduction">
-        <h2 id="introduction">Introduction</h2>
-        <p>
-          PageDrop is a Chrome extension that lets you capture screenshots of web pages — the visible
-          viewport, a full scrollable page, or a selected region — and annotate them in a built-in
-          editor before copying or downloading the result.
-        </p>
-        <p>
-          Your privacy matters. This policy explains what PageDrop does and does not do with your
-          information. In short: screenshot capture and editing stay on your device; PageDrop does not
-          track your browsing or send captures to our servers.
-        </p>
-      </section>
-
-      <section aria-labelledby="data-collection">
-        <h2 id="data-collection">Data Collection</h2>
-        <p>
-          <strong>PageDrop does not collect personal data during normal use.</strong> We do not sell,
-          rent, or share your browsing history, account details, or usage analytics from everyday
-          extension use.
-        </p>
+      <section class="card whats-new" aria-labelledby="whats-new-heading">
+        <h2 id="whats-new-heading">What&rsquo;s new in v1.5.1</h2>
         <ul>
-          <li>Screenshot capture, editing, and export happen locally in your browser.</li>
-          <li>No cookies are set by PageDrop.</li>
-          <li>No analytics, tracking, or advertising tools are used during normal use.</li>
-          <li>
-            Voluntary uninstall feedback is described in
-            <a href="#uninstall-feedback">Uninstall feedback</a> below.
-          </li>
+          <li><strong>Snip Area alignment fix</strong> — region captures now match the selected area without the slight right shift that could clip the left edge</li>
+          <li><strong>More reliable cleanup</strong> — page scroll and selection UI now restore more consistently after a region capture succeeds, fails, or is invalid</li>
+          <li><strong>Same simple shortcuts</strong> — <code>Alt+P</code> Print Page, <code>Alt+G</code> Scroll &amp; Capture, <code>Alt+S</code> Snip Area</li>
         </ul>
-        <p>
-          When you take a screenshot, the image is stored temporarily in your browser's local storage
-          (IndexedDB) so you can access recent captures in the editor's history panel. Up to 50 recent
-          captures are kept until you delete them. This data never leaves your device and is removed
-          when you uninstall the extension or clear your browser's extension data.
-        </p>
       </section>
 
-      <section aria-labelledby="permissions">
-        <h2 id="permissions">Permissions Explanation</h2>
-        <p>
-          PageDrop requests only the permissions needed to capture and edit screenshots when you
-          explicitly start a capture. None of these permissions are used to collect or transmit
-          personal data.
-        </p>
-        <ul class="permission-list">
-          <li>
-            <span class="permission-name">activeTab</span>
-            <span class="permission-desc">
-              Allows PageDrop to access the tab you are currently viewing only when you start a capture
-              — by clicking the toolbar icon, using a keyboard shortcut, or choosing an option from
-              the right-click menu. PageDrop does not access tabs in the background without your action.
-            </span>
-          </li>
-          <li>
-            <span class="permission-name">tabs</span>
-            <span class="permission-desc">
-              Used to identify which tab and window to capture, take the screenshot itself, send
-              coordination messages during full-page and region capture, open the editor after a
-              capture, and show optional capture progress on the extension badge. PageDrop does not
-              read or record the content of your tabs beyond what is needed for the capture you
-              requested.
-            </span>
-          </li>
-          <li>
-            <span class="permission-name">scripting</span>
-            <span class="permission-desc">
-              Used to inject PageDrop's content script into the active tab when needed — for example,
-              to scroll the page during a full-page capture, display the region-selection overlay,
-              show status messages, and restore the page afterward. Injection only happens on tabs
-              where you have started a capture.
-            </span>
-          </li>
-          <li>
-            <span class="permission-name">contextMenus</span>
-            <span class="permission-desc">
-              Used to add a "PageDrop" entry to the right-click menu on web pages, giving you quick
-              access to Print Page, Scroll &amp; Capture, and Snip Area without opening the toolbar
-              popup.
-            </span>
-          </li>
-          <li>
-            <span class="permission-name">clipboardWrite (optional)</span>
-            <span class="permission-desc">
-              Requested only when you choose to copy from the editor. PageDrop only writes the image
-              you explicitly copy; it does not read your clipboard.
-            </span>
-          </li>
-          <li>
-            <span class="permission-name">storage</span>
-            <span class="permission-desc">
-              Used to save your light or dark theme preference locally in the browser. PageDrop reads
-              this setting when the popup and editor open so the interface matches your chosen mode.
-              Theme data is stored only on your device in <code>chrome.storage.local</code> and is
-              never transmitted to any server.
-            </span>
-          </li>
-        </ul>
-        <p>
-          PageDrop does not request broad <code>host_permissions</code> or always-on access to all
-          websites. It uses <code>activeTab</code> and on-demand <code>scripting</code> injection only
-          when you start a capture on the tab you are viewing.
-        </p>
-      </section>
-
-      <section aria-labelledby="uninstall-feedback">
-        <h2 id="uninstall-feedback">Uninstall feedback</h2>
-        <p>
-          If you uninstall PageDrop, Chrome may open a short optional feedback page hosted on our
-          GitHub Pages site. You choose whether to answer; nothing is sent unless you submit the form.
-        </p>
+      <section class="card" aria-labelledby="capture-heading">
+        <h2 id="capture-heading">Capture modes</h2>
         <ul>
-          <li>
-            Feedback is <strong>not</strong> linked to your screenshots, browsing history, or page
-            URLs.
-          </li>
-          <li>
-            We may collect only what you voluntarily submit (for example, why you uninstalled, an
-            optional one-line comment, an optional 1–5 rating, and an optional email if you choose
-            to provide one).
-          </li>
-          <li>
-            Responses are stored in a private Google Sheet used solely to improve PageDrop.
-          </li>
-          <li>
-            The extension version may be included as an anonymous query parameter on the feedback page
-            URL (for example, <code>?v=1.2</code>).
-          </li>
+          <li><strong>Visible tab (Print Page)</strong> — screenshot what&rsquo;s on screen right now</li>
+          <li><strong>Full page (Scroll &amp; Capture)</strong> — automatic scrolling capture of long pages with progress indicator</li>
+          <li><strong>Region (Snip Area)</strong> — drag to snip any area of the page</li>
         </ul>
-        <p>
-          Uninstalling without submitting the form sends nothing. Normal PageDrop use does not require
-          any server communication.
-        </p>
       </section>
 
-      <section aria-labelledby="third-parties">
-        <h2 id="third-parties">Third Parties</h2>
-        <p>
-          PageDrop does not integrate with analytics platforms or advertising networks during normal
-          use. Screenshot processing does not use third-party APIs.
-        </p>
-        <p>
-          Voluntary uninstall feedback is stored in Google Sheets (Google's service). Google's
-          handling of that data is subject to
-          <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google's privacy policy</a>.
-        </p>
-        <p>
-          The Chrome Web Store is operated by Google. Installing or updating PageDrop through the store
-          is subject to Google's own privacy policy, which is separate from this one.
-        </p>
+      <section class="card" aria-labelledby="editor-heading">
+        <h2 id="editor-heading">Built-in editor</h2>
+        <ul>
+          <li>Opens in a <strong>browser tab</strong> so you can review before saving</li>
+          <li>Draw, shapes, arrows, and text annotations</li>
+          <li>Crop to focus on what matters</li>
+          <li><strong>Blur / redact</strong> — permanently pixelate emails, names, or IDs before sharing</li>
+          <li>Export as <strong>PNG</strong>, <strong>JPEG</strong>, or <strong>PDF</strong></li>
+          <li>Multi-page PDF when a very long page is split into parts</li>
+          <li>Recent captures history in the session — switch, continue editing, or remove</li>
+          <li>Copy to clipboard, undo, rotate, light/dark theme</li>
+        </ul>
       </section>
 
-      <section aria-labelledby="contact">
-        <h2 id="contact">Contact</h2>
-        <p>
-          If you have questions about this privacy policy or how PageDrop handles your information,
-          please contact us at:
-        </p>
-        <p>
-          <a href="mailto:developerchromextension@gmail.com">developerchromextension@gmail.com</a>
-        </p>
+      <section class="card privacy-callout" aria-labelledby="privacy-heading">
+        <h2 id="privacy-heading">Privacy-first</h2>
+        <ul>
+          <li>No broad <code>&lt;all_urls&gt;</code> permission — <strong>activeTab</strong> only</li>
+          <li>Content script runs only when <em>you</em> start a capture</li>
+          <li>Screenshots stay local until you copy or download</li>
+          <li>No cloud upload during normal use</li>
+        </ul>
       </section>
 
-      <section aria-labelledby="changes">
-        <h2 id="changes">Changes to This Policy</h2>
-        <p>
-          We may update this privacy policy from time to time. When we do, we will revise the
-          "Last updated" date at the top of this page. Continued use of PageDrop after any changes
-          constitutes acceptance of the updated policy.
+      <section class="card" aria-labelledby="shortcuts-heading">
+        <h2 id="shortcuts-heading">Keyboard shortcuts</h2>
+        <p style="margin-bottom: 16px; color: #4b5563; font-size: 15px;">
+          Customize shortcuts at <code>chrome://extensions/shortcuts</code>.
         </p>
-        <p>
-          If we make material changes — for example, if PageDrop begins collecting any user data — we
-          will update this page and, where required, notify users through the Chrome Web Store listing
-          before the changes take effect.
-        </p>
+        <div class="shortcut-group">
+          <h3>Windows &amp; Linux</h3>
+          <ul>
+            <li><code>Alt+P</code> — Print Page (visible tab screenshot)</li>
+            <li><code>Alt+G</code> — Scroll &amp; Capture (full page)</li>
+            <li><code>Alt+S</code> — Snip Area (region)</li>
+          </ul>
+        </div>
+        <div class="shortcut-group">
+          <h3>Mac</h3>
+          <ul>
+            <li><code>⌥P</code> (Option + P) — Print Page</li>
+            <li><code>⌥G</code> (Option + G) — Scroll &amp; Capture</li>
+            <li><code>⌥S</code> (Option + S) — Snip Area</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+
+        <details class="faq-item">
+          <summary>What is PageDrop?</summary>
+          <p>
+            PageDrop is a free Chrome extension for capturing visible tabs, full scrollable web pages,
+            or custom screen regions. Every capture opens in a built-in editor where you can annotate,
+            crop, blur sensitive details, and export — all processed locally in your browser.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I take a full-page screenshot in Chrome?</summary>
+          <p>
+            Install PageDrop, open any normal website, then click the toolbar icon and choose
+            <strong>Scroll &amp; Capture</strong>, or press <code>Alt+G</code>
+            (Option+G on Mac). PageDrop scrolls automatically and stitches the page into one image.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Keyboard shortcuts not working?</summary>
+          <p>
+            Open <code>chrome://extensions/shortcuts</code> and check that PageDrop has keys assigned for
+            Print Page, Scroll &amp; Capture, and Snip Area. If any shortcut is blank, click it and assign
+            <code>Alt+P</code>, <code>Alt+G</code>, or <code>Alt+S</code> (or your preferred keys).
+            If they still do not work, remove PageDrop and reinstall it so Chrome can apply the defaults again.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is PageDrop safe and private?</summary>
+          <p>
+            Yes. PageDrop uses <strong>activeTab</strong> permission only — no broad site access at install.
+            Screenshots are processed locally and are not uploaded to external servers during normal use.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can PageDrop blur or redact sensitive information?</summary>
+          <p>
+            Yes. Drag the blur/redact tool over any area to permanently pixelate emails, names, IDs,
+            or other sensitive content before sharing or exporting.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What file formats does PageDrop export?</summary>
+          <p>
+            PNG (lossless), JPEG (smaller files), and PDF. When a very long page is split into multiple
+            images, you can combine all parts into one multi-page PDF or export the current part only.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What pages cannot be captured?</summary>
+          <p>
+            PageDrop cannot capture <code>chrome://</code> pages, the Chrome Web Store, or the New Tab page.
+            Open a normal website first. Refresh the page once (F5) after installing or updating.
+          </p>
+        </details>
       </section>
     </main>
 
     <footer>
-      <p>&copy; 2026 PageDrop. All rights reserved.</p>
-      <p style="margin-top: 10px; font-size: 13px; color: #9ca3af;">
-        <a href="home.html">About PageDrop</a>
-        &nbsp;·&nbsp;
-        <a href="https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp" rel="noopener">Chrome Web Store</a>
+      <p>© 2026 PageDrop · Version 1.5.1</p>
+      <p style="margin-top: 8px;">
+        <a href="privacy.html">Privacy policy</a>
+        ·
+        <a href="https://github.com/roshancodes24" rel="noopener">GitHub</a>
+        ·
+        <a id="store-footer-link" href="https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp" rel="noopener">Chrome Web Store</a>
       </p>
     </footer>
   </div>
+
+  <script src="store-url.js"></script>
+  <script>
+    (function () {
+      const url = window.PAGEDROP_STORE_URL || '';
+      const btn = document.getElementById('install-btn');
+      const footerLink = document.getElementById('store-footer-link');
+      const note = document.getElementById('install-note');
+      if (url && btn) {
+        btn.href = url;
+        if (footerLink) footerLink.href = url;
+        if (note) note.hidden = false;
+      }
+    })();
+  </script>
 </body>
 </html>

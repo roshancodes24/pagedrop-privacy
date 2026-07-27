@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Marketing / SEO landing page — primary indexing target -->
+  <!-- Home / marketing page — primary indexing target -->
   <url>
-    <loc>https://roshancodes24.github.io/pagedrop-privacy/home.html</loc>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Privacy policy — required by Chrome Web Store -->
+  <!-- Privacy policy -->
   <url>
-    <loc>https://roshancodes24.github.io/pagedrop-privacy/</loc>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/privacy.html</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
