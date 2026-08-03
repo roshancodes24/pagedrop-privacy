@@ -2,6 +2,8 @@
 
 One-time setup to store voluntary uninstall feedback in a Google Sheet.
 
+For **in-editor Feedback** email (separate web app), see [`Feedback.md`](./Feedback.md).
+
 ## 1. Create the Sheet
 
 1. Open [Google Sheets](https://sheets.google.com) and create a spreadsheet named **PageDrop Uninstall Feedback**.

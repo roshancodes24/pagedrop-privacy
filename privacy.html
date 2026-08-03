@@ -189,7 +189,7 @@
         <span class="brand-name">PageDrop</span>
       </div>
       <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: July 1, 2026</p>
+      <p class="meta">Last updated: August 3, 2026</p>
     </header>
 
     <main>
@@ -219,8 +219,9 @@
           <li>No cookies are set by PageDrop.</li>
           <li>No analytics, tracking, or advertising tools are used during normal use.</li>
           <li>
-            Voluntary uninstall feedback is described in
-            <a href="#uninstall-feedback">Uninstall feedback</a> below.
+            Voluntary <a href="#editor-feedback">in-editor Feedback</a> and
+            <a href="#uninstall-feedback">uninstall feedback</a> are described below — nothing is
+            sent unless you submit those forms.
           </li>
         </ul>
         <p>
@@ -235,8 +236,9 @@
         <h2 id="permissions">Permissions Explanation</h2>
         <p>
           PageDrop requests only the permissions needed to capture and edit screenshots when you
-          explicitly start a capture. None of these permissions are used to collect or transmit
-          personal data.
+          explicitly start a capture, plus limited host access used solely if you choose to send
+          in-editor Feedback. Capture permissions are not used to collect or transmit personal data
+          in the background.
         </p>
         <ul class="permission-list">
           <li>
@@ -289,11 +291,53 @@
               transmitted to any server. Light and dark appearance follow your system setting.
             </span>
           </li>
+          <li>
+            <span class="permission-name">Host access (script.google.com / script.googleusercontent.com)</span>
+            <span class="permission-desc">
+              Used only when you open Feedback in the editor and click Send. The extension may contact
+              a Google Apps Script web app so your written note (and optional reply email) can be
+              emailed to the developer. This access is <strong>not</strong> used for screenshots,
+              browsing history, or background access to normal websites. See
+              <a href="#editor-feedback">In-editor Feedback</a>.
+            </span>
+          </li>
         </ul>
         <p>
-          PageDrop does not request broad <code>host_permissions</code> or always-on access to all
-          websites. It uses <code>activeTab</code> and on-demand <code>scripting</code> injection only
-          when you start a capture on the tab you are viewing.
+          PageDrop does <strong>not</strong> request broad always-on access to all websites
+          (no <code>&lt;all_urls&gt;</code> host permission). Capture still uses
+          <code>activeTab</code> and on-demand <code>scripting</code> injection only when you start a
+          capture on the tab you are viewing. The only host permissions are the Google Apps Script
+          origins above, for voluntary Feedback.
+        </p>
+      </section>
+
+      <section aria-labelledby="editor-feedback">
+        <h2 id="editor-feedback">In-editor Feedback</h2>
+        <p>
+          The PageDrop editor includes an optional Feedback control. You choose whether to use it;
+          nothing is sent unless you click Send.
+        </p>
+        <ul>
+          <li>
+            Feedback is <strong>not</strong> linked to your screenshots, browsing history, or page
+            URLs. Captures are never attached or uploaded.
+          </li>
+          <li>
+            We may receive only what you voluntarily submit: your message text, an optional reply
+            email if you enter one, and the extension version (to help diagnose issues).
+          </li>
+          <li>
+            Messages are delivered to the developer inbox
+            (<a href="mailto:developerchromextension@gmail.com">developerchromextension@gmail.com</a>)
+            using a Google Apps Script web app.
+          </li>
+          <li>
+            If Feedback delivery is not configured, Send may open your email app with a prefilled
+            message instead (still only after you choose Send).
+          </li>
+        </ul>
+        <p>
+          Capturing, editing, copying, and downloading never require this Feedback path.
         </p>
       </section>
 
@@ -318,12 +362,12 @@
           </li>
           <li>
             The extension version may be included as an anonymous query parameter on the feedback page
-            URL (for example, <code>?v=1.2</code>).
+            URL (for example, <code>?v=1.7</code>).
           </li>
         </ul>
         <p>
-          Uninstalling without submitting the form sends nothing. Normal PageDrop use does not require
-          any server communication.
+          Uninstalling without submitting the form sends nothing. Capture, edit, and export do not
+          require any server communication.
         </p>
       </section>
 
@@ -334,8 +378,9 @@
           use. Screenshot processing does not use third-party APIs.
         </p>
         <p>
-          Voluntary uninstall feedback is stored in Google Sheets (Google's service). Google's
-          handling of that data is subject to
+          Voluntary uninstall feedback is stored in Google Sheets (Google's service). Voluntary
+          in-editor Feedback is delivered via Google Apps Script / Gmail (Google's services) to the
+          developer inbox. Google's handling of that data is subject to
           <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google's privacy policy</a>.
         </p>
         <p>
