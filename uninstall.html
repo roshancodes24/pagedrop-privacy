@@ -356,11 +356,6 @@
         Feedback storage is not configured yet. You can still close this tab — your answers will not be saved.
       </div>
 
-      <div id="accident-notice" class="notice notice-success" hidden>
-        <p style="margin-bottom: 10px;">Sounds like this was an accident. You can reinstall PageDrop anytime.</p>
-        <a id="reinstall-link" class="btn btn-primary" href="#" hidden>Reinstall PageDrop</a>
-      </div>
-
       <form id="form-survey" novalidate>
         <fieldset>
           <legend>Why are you uninstalling? <span aria-hidden="true">*</span></legend>
@@ -393,10 +388,6 @@
     <div id="panel-done" class="panel" role="status" hidden>
       <h1>Thank you!</h1>
       <p class="lead">Your feedback helps us build a better screenshot tool. We appreciate your time.</p>
-      <div id="done-reinstall" class="notice notice-success" hidden>
-        <p style="margin-bottom: 10px;">Changed your mind? You can reinstall PageDrop anytime.</p>
-        <a id="done-reinstall-link" class="btn btn-primary" href="#">Reinstall PageDrop</a>
-      </div>
       <div class="actions">
         <button type="button" class="btn btn-secondary" id="close-done">Close this tab</button>
       </div>
@@ -421,9 +412,6 @@
       { value: 'buggy', label: "Didn't work as expected / buggy" },
       { value: 'missing_feature', label: 'Missing a feature I need' },
       { value: 'slow_complicated', label: 'Too slow or complicated' },
-      { value: 'privacy', label: 'Privacy concerns' },
-      { value: 'alternative', label: 'Found a better alternative' },
-      { value: 'accident', label: 'Installed by accident' },
       { value: 'other', label: 'Other' },
     ];
 
@@ -618,24 +606,8 @@
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
 
-    function showDone(reason) {
+    function showDone() {
       showPanel('panel-done');
-      if (reason === 'accident') {
-        setupReinstallLink('done-reinstall', 'done-reinstall-link');
-      }
-    }
-
-    function setupReinstallLink(noticeId, linkId) {
-      const notice = document.getElementById(noticeId);
-      const link = document.getElementById(linkId);
-      const storeUrl = (config.chromeWebStoreUrl || '').trim();
-      if (!notice || !link) return;
-      if (storeUrl) {
-        link.href = storeUrl;
-        notice.hidden = false;
-      } else {
-        notice.hidden = true;
-      }
     }
 
     function setSubmitting(submitting) {
@@ -643,23 +615,6 @@
       if (!btn) return;
       btn.disabled = submitting;
       btn.textContent = submitting ? 'Submitting…' : 'Submit';
-    }
-
-    function maybeShowAccidentNotice(reason) {
-      const notice = document.getElementById('accident-notice');
-      const link = document.getElementById('reinstall-link');
-      const storeUrl = (config.chromeWebStoreUrl || '').trim();
-      if (reason !== 'accident') {
-        notice.hidden = true;
-        return;
-      }
-      notice.hidden = false;
-      if (storeUrl && link) {
-        link.href = storeUrl;
-        link.hidden = false;
-      } else if (link) {
-        link.hidden = true;
-      }
     }
 
     buildRadioList('reason-list', 'reason', REASON_OPTIONS);
@@ -677,10 +632,6 @@
       }
     }
 
-    document.getElementById('reason-list').addEventListener('change', () => {
-      maybeShowAccidentNotice(getRadioValue('reason'));
-    });
-
     document.getElementById('form-survey').addEventListener('submit', (event) => {
       event.preventDefault();
       const answers = collectAnswers();
@@ -693,13 +644,13 @@
       setSubmitting(true);
       submitSurvey(answers).finally(() => {
         setSubmitting(false);
-        showDone(answers.reason);
+        showDone();
       });
     });
 
     document.getElementById('skip-survey').addEventListener('click', () => {
       optedOut = true;
-      showDone(getRadioValue('reason'));
+      showDone();
     });
 
     document.getElementById('close-done').addEventListener('click', () => {
