@@ -25,6 +25,6 @@ One-time setup so the editor **Feedback** form can email `developerchromextensio
 ## 4. Test
 
 1. Open the Apps Script URL in a browser — you should see `{"ok":true,"service":"pagedrop-editor-feedback"}`.
-2. In the PageDrop editor, open **Feedback**, submit a short message, and check the inbox.
+2. In the PageDrop editor, open **Feedback** from the right toolbar (below Rotate), submit a short message, and check the inbox.
 
 While `appsScriptUrl` is empty, Send uses a `mailto:` fallback instead of the web app.

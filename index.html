@@ -550,7 +550,7 @@
         <h2 id="capture-heading">Capture modes</h2>
         <ul>
           <li><strong>Visible tab (Print Page)</strong> — screenshot what&rsquo;s on screen right now</li>
-          <li><strong>Full page (Scroll &amp; Capture)</strong> — automatic scrolling capture of long pages with progress indicator</li>
+          <li><strong>Full page (Scroll &amp; Capture)</strong> — automatic scrolling capture of long pages with progress indicator; very long pages capture up to ~40 screens for performance</li>
           <li><strong>Region (Snip Area)</strong> — drag to snip any area of the page</li>
         </ul>
       </section>
@@ -559,13 +559,14 @@
         <h2 id="editor-heading">Built-in editor</h2>
         <ul>
           <li>Opens in a <strong>browser tab</strong> so you can review before saving</li>
-          <li>Draw, shapes, arrows, and text annotations</li>
+          <li>Draw, shapes, arrows, text, and <strong>highlight</strong> annotations</li>
           <li>Crop to focus on what matters</li>
           <li><strong>Blur / redact</strong> — permanently pixelate emails, names, or IDs before sharing</li>
+          <li><strong>Feedback</strong> — optional note to the developer from the editor toolbar (text only; screenshots never uploaded)</li>
           <li>Export as <strong>PNG</strong>, <strong>JPEG</strong>, or <strong>PDF</strong></li>
           <li>Multi-page PDF when a very long page is split into parts</li>
           <li>Recent captures history in the session — switch, continue editing, or remove</li>
-          <li>Copy to clipboard, undo, rotate, light/dark theme (follows system)</li>
+          <li>Copy to clipboard, undo/redo, rotate, light/dark theme (follows system)</li>
         </ul>
       </section>
 
@@ -665,6 +666,15 @@
           <p>
             PNG (lossless), JPEG (smaller files), and PDF. When a very long page is split into multiple
             images, you can combine all parts into one multi-page PDF or export the current part only.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What happens on very long full-page captures?</summary>
+          <p>
+            Scroll &amp; Capture stops after about <strong>40 viewport frames</strong> so capture stays fast and
+            the editor stays responsive. You&rsquo;ll see a warning if only the top portion was captured.
+            Use <strong>Snip Area</strong> for a specific region, or <strong>Print Page</strong> for one screen.
           </p>
         </details>
 
