@@ -401,7 +401,7 @@
         ·
         <a href="index.html">Privacy policy</a>
       </p>
-      <p id="version-foot" class="legend-optional" style="margin-top: 8px;" hidden></p>
+      <p id="version-foot" class="legend-optional" style="margin-top: 8px;">PageDrop v1.7.1</p>
     </footer>
   </div>
 
@@ -416,8 +416,9 @@
       { value: 'other', label: 'Other' },
     ];
 
+    const CURRENT_VERSION = '1.7.1';
     const params = new URLSearchParams(window.location.search);
-    const extensionVersion = params.get('v') || '';
+    const extensionVersion = params.get('v') || CURRENT_VERSION;
     const urlSecretKey = params.get('key') || '';
     const daysSinceInstall = params.get('days') || '';
 
@@ -625,12 +626,10 @@
       document.getElementById('config-warn').hidden = false;
     }
 
-    if (extensionVersion) {
-      const versionFoot = document.getElementById('version-foot');
-      if (versionFoot) {
-        versionFoot.textContent = 'PageDrop v' + extensionVersion;
-        versionFoot.hidden = false;
-      }
+    const versionFoot = document.getElementById('version-foot');
+    if (versionFoot) {
+      versionFoot.textContent = 'PageDrop v' + extensionVersion;
+      versionFoot.hidden = false;
     }
 
     document.getElementById('form-survey').addEventListener('submit', (event) => {
