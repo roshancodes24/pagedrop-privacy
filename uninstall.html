@@ -416,9 +416,11 @@
       { value: 'other', label: 'Other' },
     ];
 
-    const CURRENT_VERSION = '1.7.1';
+    // Footer default for direct visits. Survey submissions use only ?v= from
+    // chrome.runtime.setUninstallURL (the user's installed extension version).
+    const SITE_VERSION = '1.7.1';
     const params = new URLSearchParams(window.location.search);
-    const extensionVersion = params.get('v') || CURRENT_VERSION;
+    const extensionVersion = String(params.get('v') || '').trim();
     const urlSecretKey = params.get('key') || '';
     const daysSinceInstall = params.get('days') || '';
 
@@ -628,7 +630,7 @@
 
     const versionFoot = document.getElementById('version-foot');
     if (versionFoot) {
-      versionFoot.textContent = 'PageDrop v' + extensionVersion;
+      versionFoot.textContent = 'PageDrop v' + (extensionVersion || SITE_VERSION);
       versionFoot.hidden = false;
     }
 
