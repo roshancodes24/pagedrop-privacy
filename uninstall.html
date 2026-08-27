@@ -359,6 +359,11 @@
 
       <form id="form-survey" novalidate>
         <fieldset>
+          <legend>Overall experience <span class="legend-optional">(optional)</span></legend>
+          <div class="star-row" id="rating-row"></div>
+        </fieldset>
+
+        <fieldset>
           <legend>Why are you uninstalling? <span aria-hidden="true">*</span></legend>
           <ul class="option-list" id="reason-list"></ul>
           <p id="reason-error" class="error-text">Please choose a reason.</p>
@@ -367,11 +372,6 @@
         <fieldset>
           <legend for="short-note">Anything else in one line? <span class="legend-optional">(optional)</span></legend>
           <input type="text" id="short-note" name="short_note" maxlength="500" autocomplete="off" />
-        </fieldset>
-
-        <fieldset>
-          <legend>Overall experience <span class="legend-optional">(optional)</span></legend>
-          <div class="star-row" id="rating-row"></div>
         </fieldset>
 
         <fieldset>
