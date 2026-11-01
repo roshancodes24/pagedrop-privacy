@@ -1,20 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Home / marketing page — primary indexing target -->
+  <!-- Home / marketing page — primary indexing target: English + translations (each lists every language) -->
   <url>
     <loc>https://roshancodes24.github.io/pagedrop-privacy/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+  </url>
+  <url>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/pt-br/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+  </url>
+  <url>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/es/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+  </url>
+  <url>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/ja/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+  </url>
+  <url>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/zh-cn/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+  </url>
+  <url>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/ru/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/" />
   </url>
 
-  <!-- Privacy policy -->
+  <!-- Privacy policy: English + translations (each lists every language) -->
   <url>
     <loc>https://roshancodes24.github.io/pagedrop-privacy/privacy.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
+  </url>
+  <url>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/pt-br/privacy.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
+  </url>
+  <url>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/es/privacy.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
+  </url>
+  <url>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/ja/privacy.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
+  </url>
+  <url>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/zh-cn/privacy.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
+  </url>
+  <url>
+    <loc>https://roshancodes24.github.io/pagedrop-privacy/ru/privacy.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/privacy.html" />
   </url>
 
 </urlset>

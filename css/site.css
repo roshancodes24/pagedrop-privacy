@@ -1,0 +1,139 @@
+/* Shared by every page and language: language menu + per-language fonts. */
+
+/* CJK pages: pick native system fonts so Han characters use the right
+   regional glyphs (Japanese vs Simplified Chinese) on every OS. */
+html:lang(ja) body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Yu Gothic UI", Meiryo, "Noto Sans JP", sans-serif;
+}
+
+html:lang(zh-CN) body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", sans-serif;
+}
+
+/* Negative tracking looks cramped on CJK glyphs. */
+html:lang(ja) h1, html:lang(ja) h2,
+html:lang(zh-CN) h1, html:lang(zh-CN) h2 {
+  letter-spacing: 0;
+}
+
+/* Long single words (e.g. Russian "конфиденциальности") must not overflow small phones. */
+h1, h2 {
+  overflow-wrap: break-word;
+}
+
+html:lang(ru) h1, html:lang(ru) h2 {
+  hyphens: auto;
+}
+
+/* Break Japanese headings between phrases, not mid-word (Chrome 119+). */
+html:lang(ja) h1, html:lang(ja) h2, html:lang(ja) .lead {
+  word-break: auto-phrase;
+}
+
+/* ---- Language menu ---- */
+
+.lang-switch {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.lang-menu summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #374151;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.lang-menu summary::-webkit-details-marker { display: none; }
+
+.lang-menu summary:hover { background: #f9fafb; }
+
+.lang-menu summary:focus-visible {
+  outline: 2px solid #00e5a0;
+  outline-offset: 2px;
+}
+
+.lang-menu summary svg {
+  flex-shrink: 0;
+  color: #6b7280;
+}
+
+.lang-menu summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin: 0 1px 3px 2px;
+  border-right: 1.5px solid #6b7280;
+  border-bottom: 1.5px solid #6b7280;
+  transform: rotate(45deg);
+}
+
+.lang-menu[open] summary::after {
+  transform: rotate(-135deg);
+  margin-bottom: -2px;
+}
+
+.lang-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 20;
+  min-width: 190px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(15, 25, 35, 0.12);
+}
+
+.lang-list li { margin: 0; }
+
+.lang-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.lang-list a:hover {
+  background: #f3f4f6;
+  text-decoration: none;
+}
+
+.lang-list a[aria-current="true"] {
+  font-weight: 600;
+  color: #15803d;
+}
+
+.lang-list a[aria-current="true"]::after {
+  content: "";
+  width: 5px;
+  height: 9px;
+  margin-bottom: 2px;
+  border-right: 2px solid #15803d;
+  border-bottom: 2px solid #15803d;
+  transform: rotate(45deg);
+}

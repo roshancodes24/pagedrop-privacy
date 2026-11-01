@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../lang.js"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png" />
+  <link rel="apple-touch-icon" href="../assets/icon128.png" />
+  <title>PageDrop – 网页整页截图、长截图与区域截图 Chrome 扩展</title>
+  <meta name="description" content="PageDrop 是一款免费的 Chrome 扩展，可截取整个网页、可见区域或任意选区。支持标注、裁剪、模糊打码敏感信息，并导出 PNG、JPEG 或 PDF。仅使用 activeTab 权限，隐私优先 — v1.7.3。" />
+  <meta name="keywords" content="网页长截图, 整页截图, 滚动截图, Chrome 截图扩展, 截图标注, 模糊打码, 导出 PDF, PageDrop" />
+  <meta name="author" content="PageDrop" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/" />
+  <link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/" />
+  <link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/" />
+  <link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/" />
+  <link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/" />
+  <link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/" />
+  <link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+
+  <meta property="og:title" content="PageDrop – 网页整页截图与长截图" />
+  <meta property="og:description" content="截取整个网页、可见区域或选区。编辑、模糊打码敏感信息，导出 PNG/JPEG/PDF。隐私优先的 Chrome 扩展 — 仅使用 activeTab。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/" />
+  <meta property="og:site_name" content="PageDrop" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="PageDrop – 网页整页截图与长截图" />
+  <meta name="twitter:description" content="免费 Chrome 扩展：滚动截取整页长图、框选截图、带模糊打码的编辑器、导出 PNG/JPEG/PDF。隐私优先。" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0SV9CSRC1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z0SV9CSRC1');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://roshancodes24.github.io/pagedrop-privacy/zh-cn/",
+        "url": "https://roshancodes24.github.io/pagedrop-privacy/zh-cn/",
+        "name": "PageDrop – 网页整页截图与长截图",
+        "description": "PageDrop 是一款隐私优先的 Chrome 扩展，可截取整个网页、可见区域或选区，并内置编辑器。",
+        "inLanguage": "zh-CN",
+        "isPartOf": { "@id": "https://roshancodes24.github.io/pagedrop-privacy/#website" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "PageDrop",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "softwareVersion": "1.7.3",
+        "datePublished": "2026-07-08",
+        "inLanguage": "zh-CN",
+        "description": "内置编辑器的 Chrome 截图扩展，可截取整个网页、可见区域或选区。支持标注、裁剪、模糊打码敏感区域，并导出 PNG、JPEG 或 PDF。仅使用 activeTab 权限。",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "截取可见区域",
+          "滚动截取整个网页",
+          "框选截图",
+          "画笔、形状、箭头和文字标注",
+          "裁剪和旋转",
+          "模糊打码敏感内容",
+          "导出 PNG、JPEG 或 PDF",
+          "超长截图拆分后可导出多页 PDF",
+          "复制到剪贴板",
+          "键盘快捷键",
+          "右键菜单",
+          "浅色和深色主题（跟随系统）",
+          "隐私优先：仅使用 activeTab 权限"
+        ],
+        "downloadUrl": "https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp?hl=zh-CN",
+        "browserRequirements": "需要支持 Manifest V3 扩展的 Google Chrome 或基于 Chromium 的浏览器",
+        "sameAs": "https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp"
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "zh-CN",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "PageDrop 是什么？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PageDrop 是一款免费的 Chrome 扩展，可以截取可见区域、需要滚动的整个网页或自定义的屏幕区域。每张截图都会在内置编辑器中打开，你可以标注、裁剪、模糊打码敏感信息，并导出为 PNG、JPEG 或 PDF——全部在浏览器本地处理。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "如何用 PageDrop 在 Chrome 中截取整个网页？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "从 Chrome 应用商店安装 PageDrop，打开任意普通网页，点击工具栏中的 PageDrop 图标并选择“滚动截长图”，或在 Windows/Linux 上按 Alt+G（Mac 上为 Option+G）。PageDrop 会自动滚动，并将整个网页拼接成一张图片。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "为什么 PageDrop 的键盘快捷键不起作用？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "打开 chrome://extensions/shortcuts，检查 PageDrop 的“截取可见区域”“滚动截长图”和“框选截图”是否已设置按键。如果某个快捷键为空，点击它并设置为 Alt+P、Alt+G 或 Alt+S（或你喜欢的按键）。如果仍然无效，请移除 PageDrop 后重新安装，让 Chrome 重新应用默认快捷键。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop 安全吗？会保护隐私吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "会。PageDrop 截图时使用 activeTab 权限——安装时不会请求访问你的浏览历史或任何网站。截图在本地处理，截图、编辑和导出过程中都不会上传。编辑器中的可选反馈只发送你主动提交的留言（以及可选的回复邮箱），绝不附带截图。内容脚本只在你开始截图时运行。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop 能模糊或隐藏敏感信息吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "能。内置编辑器带有模糊打码工具。拖过任意区域，即可在分享或导出前，对邮箱、姓名、证件号等敏感内容进行永久马赛克处理。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop 支持导出哪些格式？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PNG（无损）、JPEG（文件更小）和 PDF。超长网页被拆分成多张图片时，可以将所有部分合并为一个多页 PDF，或只导出当前部分。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop 的键盘快捷键是什么？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "默认快捷键：Alt+P 截取可见区域，Alt+G 滚动截长图（整个网页），Alt+S 框选截图。Mac 上使用 Option+P、Option+G 和 Option+S。可在 chrome://extensions/shortcuts 中自定义。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop 无法截取哪些页面？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PageDrop 无法截取 chrome:// 页面、Chrome 应用商店或新标签页。请先打开普通网页。安装或更新后，请先刷新页面一次（F5）再截图。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="lang-switch">
+        <details class="lang-menu">
+          <summary aria-label="语言：简体中文">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span>简体中文</span>
+          </summary>
+          <ul class="lang-list">
+            <li><a href="../" hreflang="en" lang="en" data-set-lang="en">English</a></li>
+            <li><a href="../pt-br/" hreflang="pt-BR" lang="pt-BR" data-set-lang="pt-br">Português (Brasil)</a></li>
+            <li><a href="../es/" hreflang="es" lang="es" data-set-lang="es">Español</a></li>
+            <li><a href="../ja/" hreflang="ja" lang="ja" data-set-lang="ja">日本語</a></li>
+            <li><a href="../zh-cn/" hreflang="zh-CN" lang="zh-CN" data-set-lang="zh-cn" aria-current="true">简体中文</a></li>
+            <li><a href="../ru/" hreflang="ru" lang="ru" data-set-lang="ru">Русский</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+
+    <header>
+      <div class="brand-area">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 22 22" fill="none" aria-hidden="true" focusable="false">
+            <path d="M4 9 L4 4 L9 4" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13 4 L18 4 L18 9" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 13 L18 18 L13 18" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 18 L4 18 L4 13" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="11" cy="11" r="1.2" fill="#00e5a0"/>
+          </svg>
+        </div>
+        <div class="brand-name">PageDrop</div>
+        <div class="brand-tag">Chrome 整页截图与区域截图</div>
+        <p class="version-badge" aria-label="当前版本">
+          <span class="version-badge-dot" aria-hidden="true"></span>
+          v1.7.3 新功能
+        </p>
+      </div>
+
+      <h1>Chrome 网页整页截图与长截图工具</h1>
+      <p class="lead">
+        PageDrop 是一款免费的 Chrome 扩展，可以截取当前可见区域、需要滚动的整个网页，或任意选定区域。
+        你可以标注、裁剪、模糊打码敏感信息，并导出为 <strong>PNG</strong>、<strong>JPEG</strong> 或
+        <strong>PDF</strong>——只使用隐私优先的 <code>activeTab</code> 权限。
+      </p>
+
+      <nav class="cta-row" aria-label="主要操作">
+        <a id="install-btn" class="btn btn-primary" href="https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp?hl=zh-CN" rel="noopener">添加至 Chrome — 免费</a>
+        <a class="btn btn-secondary" href="privacy.html">隐私政策</a>
+      </nav>
+      <p class="cta-note" id="install-note" hidden>已在 Chrome 应用商店上架。</p>
+      <p class="pin-tip">
+        <strong>小提示：</strong>安装后，点击 Chrome 工具栏中的<strong>拼图</strong>图标（扩展程序），再点击 PageDrop
+        旁边的<strong>图钉</strong>，即可将它固定在工具栏上，一键使用。
+      </p>
+    </header>
+
+    <main>
+      <section class="card whats-new" aria-labelledby="whats-new-heading">
+        <h2 id="whats-new-heading">v1.7.3 新功能</h2>
+        <ul>
+          <li><strong>安装时不再有权限警告</strong> — PageDrop 不再请求读取你的浏览历史或访问任何网站</li>
+          <li><strong>滚动截长图更好用</strong> — 不再重复截到固定标题栏，并支持无限滚动的信息流（X、Reddit、YouTube）和吸附滚动的页面</li>
+          <li><strong>提示更清晰</strong> — 无法截图的页面（Chrome 应用商店、新标签页）现在会说明原因，而不是毫无反应</li>
+          <li><strong>编辑器更流畅</strong> — 撤销现在也包括文本框，修复了裁剪、高亮和旋转的问题，编辑长截图也快了很多</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="capture-heading">
+        <h2 id="capture-heading">截图方式</h2>
+        <ul>
+          <li><strong>截取可见区域</strong> — 截取当前屏幕上显示的内容</li>
+          <li><strong>滚动截长图</strong>（整个网页）— 自动滚动长网页并显示进度；为保证性能，超长网页最多截取约 40 屏</li>
+          <li><strong>框选截图</strong> — 拖动鼠标，截取页面的任意区域</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="editor-heading">
+        <h2 id="editor-heading">内置编辑器</h2>
+        <ul>
+          <li>在<strong>浏览器标签页</strong>中打开，保存前可以先检查</li>
+          <li>画笔、形状、箭头、文字和<strong>高亮</strong>标注</li>
+          <li>裁剪，只保留重点内容</li>
+          <li><strong>模糊打码</strong> — 分享前对邮箱、姓名或证件号等进行永久马赛克处理</li>
+          <li><strong>反馈</strong> — 可在编辑器工具栏中给开发者留言（仅文字，绝不上传截图）</li>
+          <li>导出为 <strong>PNG</strong>、<strong>JPEG</strong> 或 <strong>PDF</strong></li>
+          <li>超长网页被拆分成多张时，可导出为多页 PDF</li>
+          <li>最近截图历史 — 可切换、继续编辑或删除</li>
+          <li>复制到剪贴板、撤销/重做、旋转、浅色/深色主题（跟随系统）</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="privacy-heading">
+        <h2 id="privacy-heading">隐私优先</h2>
+        <ul>
+          <li>安装时无权限警告：不访问浏览历史和网站——截图只使用 <strong>activeTab</strong></li>
+          <li>内容脚本只在<em>你</em>开始截图时运行</li>
+          <li>截图保存在本地，直到你复制或下载</li>
+          <li>截图不会上传到云端；可选的反馈只发送你填写的文字</li>
+        </ul>
+      </section>
+
+      <section class="card support-callout" aria-labelledby="support-heading">
+        <h2 id="support-heading">喜欢 PageDrop 吗？</h2>
+        <p>
+          PageDrop 免费，并且会一直免费。如果它帮你节省了时间，欢迎在 Ko-fi 上
+          <strong>请我喝杯咖啡</strong>，支持后续开发（完全自愿）。
+        </p>
+        <a class="btn btn-secondary" href="https://ko-fi.com/roshancodes24" rel="noopener noreferrer">请我喝杯咖啡</a>
+      </section>
+
+      <section class="card" aria-labelledby="shortcuts-heading">
+        <h2 id="shortcuts-heading">键盘快捷键</h2>
+        <p class="shortcuts-note">
+          可在 <code>chrome://extensions/shortcuts</code> 中自定义快捷键。
+        </p>
+        <div class="shortcut-group">
+          <h3>Windows 和 Linux</h3>
+          <ul>
+            <li><code>Alt+P</code> — 截取可见区域（当前屏幕）</li>
+            <li><code>Alt+G</code> — 滚动截长图（整个网页）</li>
+            <li><code>Alt+S</code> — 框选截图（选定区域）</li>
+          </ul>
+        </div>
+        <div class="shortcut-group">
+          <h3>Mac</h3>
+          <ul>
+            <li><code>⌥P</code>（Option + P）— 截取可见区域</li>
+            <li><code>⌥G</code>（Option + G）— 滚动截长图</li>
+            <li><code>⌥S</code>（Option + S）— 框选截图</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">常见问题</h2>
+
+        <details class="faq-item">
+          <summary>PageDrop 是什么？</summary>
+          <p>
+            PageDrop 是一款免费的 Chrome 扩展，可以截取可见区域、需要滚动的整个网页或自定义的屏幕区域。
+            每张截图都会在内置编辑器中打开，你可以标注、裁剪、模糊打码敏感信息并导出——全部在浏览器本地处理。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>如何在 Chrome 中截取整个网页？</summary>
+          <p>
+            安装 PageDrop，打开任意普通网页，点击工具栏图标并选择<strong>滚动截长图</strong>，或按
+            <code>Alt+G</code>（Mac 上为 Option+G）。PageDrop 会自动滚动，并将整个网页拼接成一张图片。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>键盘快捷键不起作用？</summary>
+          <p>
+            打开 <code>chrome://extensions/shortcuts</code>，检查 PageDrop 的“截取可见区域”“滚动截长图”和“框选截图”
+            是否已设置按键。如果某个快捷键为空，点击它并设置为 <code>Alt+P</code>、<code>Alt+G</code> 或
+            <code>Alt+S</code>（或你喜欢的按键）。如果仍然无效，请移除 PageDrop 后重新安装，让 Chrome 重新应用默认快捷键。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>PageDrop 安全吗？会保护隐私吗？</summary>
+          <p>
+            会。PageDrop 截图时使用 <strong>activeTab</strong> 权限——安装时不会请求访问浏览历史或任何网站。
+            截图在本地处理，截图、编辑和导出过程中都不会上传。编辑器中的可选反馈只发送你主动提交的文字
+            （以及可选的回复邮箱），绝不附带截图。详见<a href="privacy.html">隐私政策</a>。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>PageDrop 能模糊或隐藏敏感信息吗？</summary>
+          <p>
+            能。用模糊工具拖过任意区域，即可在分享或导出前，对邮箱、姓名、证件号等敏感内容进行永久马赛克处理。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>PageDrop 支持导出哪些格式？</summary>
+          <p>
+            PNG（无损）、JPEG（文件更小）和 PDF。超长网页被拆分成多张图片时，可以将所有部分合并为一个多页 PDF，
+            或只导出当前部分。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>截取超长网页会怎样？</summary>
+          <p>
+            为了保证截图速度和编辑器的流畅，滚动截长图在大约 <strong>40 屏</strong>后会停止。如果只截取了网页的上半部分，
+            会显示提示。截取特定区域请用<strong>框选截图</strong>，只截一屏请用<strong>截取可见区域</strong>。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>哪些页面无法截图？</summary>
+          <p>
+            PageDrop 无法截取 <code>chrome://</code> 页面、Chrome 应用商店或新标签页。请先打开普通网页。
+            安装或更新后，请刷新页面一次（F5）。
+          </p>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 PageDrop · 版本 1.7.3</p>
+      <p class="footer-links">
+        <a href="privacy.html">隐私政策</a>
+        ·
+        <a href="https://github.com/roshancodes24" rel="noopener noreferrer">GitHub</a>
+        ·
+        <a href="https://ko-fi.com/roshancodes24" rel="noopener noreferrer">请我喝杯咖啡</a>
+        ·
+        <a id="store-footer-link" href="https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp?hl=zh-CN" rel="noopener noreferrer">Chrome 应用商店</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="../store-url.js"></script>
+  <script>
+    (function () {
+      // Open the store listing in this page's language.
+      const STORE_HL = 'zh-CN';
+      const btn = document.getElementById('install-btn');
+      const footerLink = document.getElementById('store-footer-link');
+      const note = document.getElementById('install-note');
+      let url = '';
+      try {
+        const u = new URL(window.PAGEDROP_STORE_URL || '');
+        u.searchParams.set('hl', STORE_HL);
+        url = u.toString();
+      } catch (e) {}
+      if (url && btn) {
+        btn.href = url;
+        if (footerLink) footerLink.href = url;
+        if (note) note.hidden = false;
+      }
+    })();
+  </script>
+</body>
+</html>

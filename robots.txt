@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
 
-# Do not index the uninstall survey page (not useful in search results)
+# Do not index the uninstall survey pages (not useful in search results)
 Disallow: /uninstall.html
+Disallow: /*/uninstall.html
 
 Sitemap: https://roshancodes24.github.io/pagedrop-privacy/sitemap.xml

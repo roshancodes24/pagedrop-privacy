@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../lang.js"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png" />
+  <link rel="apple-touch-icon" href="../assets/icon128.png" />
+  <title>PageDrop – ページ全体のスクリーンショット・画面キャプチャ（Chrome 拡張機能）</title>
+  <meta name="description" content="PageDrop は、ページ全体・表示範囲・選択範囲のスクリーンショットを撮れる無料の Chrome 拡張機能です。注釈、切り抜き、機密情報のぼかしを加えて PNG・JPEG・PDF で保存。activeTab のみのプライバシー重視設計 — v1.7.3。" />
+  <meta name="keywords" content="ページ全体 スクリーンショット, スクロール キャプチャ, Chrome 拡張機能 スクショ, 画面キャプチャ, スクリーンショット 注釈, ぼかし モザイク, PDF 保存, PageDrop" />
+  <meta name="author" content="PageDrop" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href="https://roshancodes24.github.io/pagedrop-privacy/ja/" />
+  <link rel="alternate" hreflang="en" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://roshancodes24.github.io/pagedrop-privacy/pt-br/" />
+  <link rel="alternate" hreflang="es" href="https://roshancodes24.github.io/pagedrop-privacy/es/" />
+  <link rel="alternate" hreflang="ja" href="https://roshancodes24.github.io/pagedrop-privacy/ja/" />
+  <link rel="alternate" hreflang="zh-CN" href="https://roshancodes24.github.io/pagedrop-privacy/zh-cn/" />
+  <link rel="alternate" hreflang="ru" href="https://roshancodes24.github.io/pagedrop-privacy/ru/" />
+  <link rel="alternate" hreflang="x-default" href="https://roshancodes24.github.io/pagedrop-privacy/" />
+
+  <meta property="og:title" content="PageDrop – ページ全体のスクリーンショット・画面キャプチャ" />
+  <meta property="og:description" content="ページ全体・表示範囲・選択範囲をキャプチャ。編集、機密情報のぼかし、PNG/JPEG/PDF で書き出し。activeTab のみのプライバシー重視の Chrome 拡張機能です。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://roshancodes24.github.io/pagedrop-privacy/ja/" />
+  <meta property="og:site_name" content="PageDrop" />
+  <meta property="og:locale" content="ja_JP" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="PageDrop – ページ全体のスクリーンショット・画面キャプチャ" />
+  <meta name="twitter:description" content="無料の Chrome 拡張機能：スクロールしてページ全体をキャプチャ、範囲選択、ぼかし機能付きエディター、PNG/JPEG/PDF で書き出し。プライバシー重視。" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0SV9CSRC1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z0SV9CSRC1');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://roshancodes24.github.io/pagedrop-privacy/ja/",
+        "url": "https://roshancodes24.github.io/pagedrop-privacy/ja/",
+        "name": "PageDrop – ページ全体のスクリーンショット・画面キャプチャ",
+        "description": "PageDrop は、ページ全体・表示範囲・選択範囲をキャプチャできる、エディター内蔵でプライバシー重視の Chrome 拡張機能です。",
+        "inLanguage": "ja",
+        "isPartOf": { "@id": "https://roshancodes24.github.io/pagedrop-privacy/#website" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "PageDrop",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "softwareVersion": "1.7.3",
+        "datePublished": "2026-07-08",
+        "inLanguage": "ja",
+        "description": "ページ全体・表示範囲・選択範囲のスクリーンショットを撮れる、エディター内蔵の Chrome 拡張機能。注釈、切り抜き、機密部分のぼかし／黒塗りを行い、PNG・JPEG・PDF で書き出せます。使用する権限は activeTab のみです。",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "表示範囲のスクリーンショット",
+          "スクロールしてページ全体をキャプチャ",
+          "範囲を選択してキャプチャ",
+          "描画、図形、矢印、テキストの注釈",
+          "切り抜きと回転",
+          "機密情報のぼかし／黒塗り",
+          "PNG・JPEG・PDF で書き出し",
+          "分割された長いキャプチャを複数ページの PDF に",
+          "クリップボードにコピー",
+          "キーボードショートカット",
+          "右クリックメニュー",
+          "ライト／ダークテーマ（システム設定に追従）",
+          "activeTab のみのプライバシー重視設計"
+        ],
+        "downloadUrl": "https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp?hl=ja",
+        "browserRequirements": "Manifest V3 拡張機能に対応した Google Chrome または Chromium ベースのブラウザが必要です",
+        "sameAs": "https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp"
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "ja",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "PageDrop とは何ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PageDrop は、表示中の画面、スクロールが必要なページ全体、または任意の範囲をキャプチャできる無料の Chrome 拡張機能です。キャプチャはすべて内蔵エディターで開き、注釈、切り抜き、機密情報のぼかしを加えて PNG・JPEG・PDF で書き出せます。処理はすべてブラウザ内で行われます。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop で Chrome のページ全体のスクリーンショットを撮るには？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Chrome ウェブストアから PageDrop をインストールし、通常のウェブサイトを開いてから、ツールバーの PageDrop アイコンをクリックして「スクロールしてキャプチャ」を選ぶか、Alt+G（Windows/Linux）または Option+G（Mac）を押します。PageDrop が自動でスクロールし、ページ全体を 1 枚の画像につなぎ合わせます。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop のキーボードショートカットが効かないのはなぜですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "chrome://extensions/shortcuts を開き、PageDrop の「表示範囲をキャプチャ」「スクロールしてキャプチャ」「範囲を選択」にキーが割り当てられているか確認してください。空欄のものがあればクリックして Alt+P、Alt+G、Alt+S（またはお好みのキー）を割り当てます。それでも動かない場合は、PageDrop を削除して再インストールすると、Chrome が既定のショートカットを再適用します。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop は安全ですか？プライバシーは守られますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "はい。PageDrop はキャプチャに activeTab 権限を使用し、インストール時に閲覧履歴やウェブサイトへのアクセスを一切求めません。スクリーンショットはローカルで処理され、キャプチャ・編集・書き出しの際にアップロードされることはありません。エディターからの任意のフィードバックで送られるのは、あなたが送信したメッセージ（と任意の返信用メールアドレス）だけで、スクリーンショットは添付されません。コンテンツスクリプトはキャプチャを開始したときだけ動作します。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop で機密情報をぼかしたり隠したりできますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "はい。内蔵エディターにぼかし／黒塗りツールがあります。任意の範囲をドラッグすると、メールアドレス、名前、ID などの機密情報を、共有や書き出しの前にモザイクで完全に隠せます。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop はどのファイル形式で書き出せますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PNG（劣化なし）、JPEG（ファイルサイズが小さい）、PDF で書き出せます。非常に長いページが複数の画像に分割された場合は、すべてを 1 つの複数ページ PDF にまとめるか、表示中のパートだけを書き出せます。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop のキーボードショートカットは？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "既定のショートカットは、表示範囲をキャプチャが Alt+P、スクロールしてキャプチャ（ページ全体）が Alt+G、範囲を選択が Alt+S です。Mac では Option+P、Option+G、Option+S を使います。chrome://extensions/shortcuts で変更できます。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PageDrop でキャプチャできないページはありますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "chrome:// のページ、Chrome ウェブストア、新しいタブのページはキャプチャできません。先に通常のウェブサイトを開いてください。インストールや更新の後は、キャプチャの前にページを一度再読み込み（F5）してください。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="lang-switch">
+        <details class="lang-menu">
+          <summary aria-label="言語: 日本語">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span>日本語</span>
+          </summary>
+          <ul class="lang-list">
+            <li><a href="../" hreflang="en" lang="en" data-set-lang="en">English</a></li>
+            <li><a href="../pt-br/" hreflang="pt-BR" lang="pt-BR" data-set-lang="pt-br">Português (Brasil)</a></li>
+            <li><a href="../es/" hreflang="es" lang="es" data-set-lang="es">Español</a></li>
+            <li><a href="../ja/" hreflang="ja" lang="ja" data-set-lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../zh-cn/" hreflang="zh-CN" lang="zh-CN" data-set-lang="zh-cn">简体中文</a></li>
+            <li><a href="../ru/" hreflang="ru" lang="ru" data-set-lang="ru">Русский</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+
+    <header>
+      <div class="brand-area">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 22 22" fill="none" aria-hidden="true" focusable="false">
+            <path d="M4 9 L4 4 L9 4" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13 4 L18 4 L18 9" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 13 L18 18 L13 18" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 18 L4 18 L4 13" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="11" cy="11" r="1.2" fill="#00e5a0"/>
+          </svg>
+        </div>
+        <div class="brand-name">PageDrop</div>
+        <div class="brand-tag">Chrome でページ全体も範囲指定もスクリーンショット</div>
+        <p class="version-badge" aria-label="現在のバージョン">
+          <span class="version-badge-dot" aria-hidden="true"></span>
+          v1.7.3 の新機能
+        </p>
+      </div>
+
+      <h1>Chrome でページ全体のスクリーンショット・画面キャプチャ</h1>
+      <p class="lead">
+        PageDrop は、表示中の画面、スクロールが必要な長いページ全体、または任意の範囲をキャプチャできる
+        無料の Chrome 拡張機能です。注釈を付けたり、切り抜いたり、機密情報をぼかしたりして、
+        <strong>PNG</strong>・<strong>JPEG</strong>・<strong>PDF</strong> で書き出せます。権限はプライバシーに配慮した
+        <code>activeTab</code> のみです。
+      </p>
+
+      <nav class="cta-row" aria-label="メインの操作">
+        <a id="install-btn" class="btn btn-primary" href="https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp?hl=ja" rel="noopener">Chrome に追加（無料）</a>
+        <a class="btn btn-secondary" href="privacy.html">プライバシーポリシー</a>
+      </nav>
+      <p class="cta-note" id="install-note" hidden>Chrome ウェブストアで公開中です。</p>
+      <p class="pin-tip">
+        <strong>ヒント：</strong>インストール後、Chrome ツールバーの<strong>パズルピース</strong>（拡張機能）アイコンをクリックし、
+        PageDrop の横にある<strong>ピン</strong>をクリックすると、いつでもワンクリックで使えます。
+      </p>
+    </header>
+
+    <main>
+      <section class="card whats-new" aria-labelledby="whats-new-heading">
+        <h2 id="whats-new-heading">v1.7.3 の新機能</h2>
+        <ul>
+          <li><strong>インストール時の警告なし</strong> — 閲覧履歴の読み取りやウェブサイトへのアクセスを求めなくなりました</li>
+          <li><strong>スクロールしてキャプチャを改善</strong> — 固定ヘッダーが重複しなくなり、無限スクロールのフィード（X、Reddit、YouTube）やスクロールスナップのページにも対応しました</li>
+          <li><strong>わかりやすいメッセージ</strong> — キャプチャできないページ（Chrome ウェブストア、新しいタブ）では、黙って失敗せずに理由を表示するようになりました</li>
+          <li><strong>エディターがより快適に</strong> — テキストボックスも元に戻せるようになり、切り抜き・ハイライト・回転の不具合を修正。長いキャプチャの編集も大幅に速くなりました</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="capture-heading">
+        <h2 id="capture-heading">キャプチャ方法</h2>
+        <ul>
+          <li><strong>表示範囲をキャプチャ</strong> — いま画面に表示されている部分を撮影</li>
+          <li><strong>スクロールしてキャプチャ</strong>（ページ全体）— 長いページを自動でスクロールして撮影し、進行状況を表示。非常に長いページは、動作を軽く保つため約 40 画面分までキャプチャします</li>
+          <li><strong>範囲を選択</strong> — ドラッグしてページの好きな部分を切り取り</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="editor-heading">
+        <h2 id="editor-heading">内蔵エディター</h2>
+        <ul>
+          <li><strong>ブラウザのタブ</strong>で開くので、保存前に確認できます</li>
+          <li>描画、図形、矢印、テキスト、<strong>ハイライト</strong></li>
+          <li>切り抜きで必要な部分だけに</li>
+          <li><strong>ぼかし／黒塗り</strong> — 共有前にメールアドレスや名前、ID をモザイクで完全に隠す</li>
+          <li><strong>フィードバック</strong> — エディターのツールバーから開発者に任意でメッセージを送信（テキストのみ。スクリーンショットは送信されません）</li>
+          <li><strong>PNG</strong>・<strong>JPEG</strong>・<strong>PDF</strong> で書き出し</li>
+          <li>長いページが複数に分割された場合は、複数ページの PDF にまとめられます</li>
+          <li>最近のキャプチャ履歴 — 切り替え、編集の続き、削除ができます</li>
+          <li>クリップボードにコピー、元に戻す／やり直し、回転、ライト／ダークテーマ（システム設定に追従）</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="privacy-heading">
+        <h2 id="privacy-heading">プライバシー重視</h2>
+        <ul>
+          <li>インストール時の警告なし：閲覧履歴やウェブサイトへのアクセス権は不要。キャプチャには <strong>activeTab</strong> のみを使用</li>
+          <li>コンテンツスクリプトは、<em>あなた</em>がキャプチャを開始したときだけ動作</li>
+          <li>スクリーンショットは、コピーやダウンロードをするまで端末内にとどまります</li>
+          <li>キャプチャをクラウドにアップロードしません。任意のフィードバックで送られるのは入力したテキストだけです</li>
+        </ul>
+      </section>
+
+      <section class="card support-callout" aria-labelledby="support-heading">
+        <h2 id="support-heading">PageDrop を気に入っていただけましたか？</h2>
+        <p>
+          PageDrop は無料で、これからもずっと無料です。お役に立てているなら、Ko-fi で
+          <strong>コーヒーを 1 杯おごって</strong>開発を応援していただけるとうれしいです（任意です）。
+        </p>
+        <a class="btn btn-secondary" href="https://ko-fi.com/roshancodes24" rel="noopener noreferrer">コーヒーをおごる</a>
+      </section>
+
+      <section class="card" aria-labelledby="shortcuts-heading">
+        <h2 id="shortcuts-heading">キーボードショートカット</h2>
+        <p class="shortcuts-note">
+          ショートカットは <code>chrome://extensions/shortcuts</code> で変更できます。
+        </p>
+        <div class="shortcut-group">
+          <h3>Windows・Linux</h3>
+          <ul>
+            <li><code>Alt+P</code> — 表示範囲をキャプチャ（表示中の画面）</li>
+            <li><code>Alt+G</code> — スクロールしてキャプチャ（ページ全体）</li>
+            <li><code>Alt+S</code> — 範囲を選択（指定した範囲）</li>
+          </ul>
+        </div>
+        <div class="shortcut-group">
+          <h3>Mac</h3>
+          <ul>
+            <li><code>⌥P</code>（Option + P）— 表示範囲をキャプチャ</li>
+            <li><code>⌥G</code>（Option + G）— スクロールしてキャプチャ</li>
+            <li><code>⌥S</code>（Option + S）— 範囲を選択</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">よくある質問</h2>
+
+        <details class="faq-item">
+          <summary>PageDrop とは何ですか？</summary>
+          <p>
+            PageDrop は、表示中の画面、スクロールが必要なページ全体、または任意の範囲をキャプチャできる無料の
+            Chrome 拡張機能です。キャプチャはすべて内蔵エディターで開き、注釈、切り抜き、機密情報のぼかし、
+            書き出しができます。処理はすべてブラウザ内で行われます。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Chrome でページ全体のスクリーンショットを撮るには？</summary>
+          <p>
+            PageDrop をインストールし、通常のウェブサイトを開いてから、ツールバーのアイコンをクリックして
+            <strong>スクロールしてキャプチャ</strong>を選ぶか、<code>Alt+G</code>（Mac は Option+G）を押します。
+            PageDrop が自動でスクロールし、ページ全体を 1 枚の画像につなぎ合わせます。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>キーボードショートカットが効かない場合は？</summary>
+          <p>
+            <code>chrome://extensions/shortcuts</code> を開き、PageDrop の「表示範囲をキャプチャ」「スクロールしてキャプチャ」
+            「範囲を選択」にキーが割り当てられているか確認してください。空欄のものがあればクリックして
+            <code>Alt+P</code>、<code>Alt+G</code>、<code>Alt+S</code>（またはお好みのキー）を割り当てます。
+            それでも動かない場合は、PageDrop を削除して再インストールすると、Chrome が既定のショートカットを再適用します。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>PageDrop は安全ですか？プライバシーは守られますか？</summary>
+          <p>
+            はい。PageDrop はキャプチャに <strong>activeTab</strong> を使用し、インストール時に閲覧履歴やウェブサイトへの
+            アクセスを求めません。スクリーンショットはローカルで処理され、キャプチャ・編集・書き出しの際にアップロード
+            されることはありません。エディターからの任意のフィードバックで送られるのは、あなたが送信したテキスト（と任意の
+            返信用メールアドレス）だけで、スクリーンショットは添付されません。詳しくは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>機密情報をぼかしたり隠したりできますか？</summary>
+          <p>
+            はい。ぼかしツールで任意の範囲をドラッグすると、メールアドレス、名前、ID などの機密情報を、
+            共有や書き出しの前にモザイクで完全に隠せます。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>どのファイル形式で書き出せますか？</summary>
+          <p>
+            PNG（劣化なし）、JPEG（ファイルサイズが小さい）、PDF です。非常に長いページが複数の画像に分割された場合は、
+            すべてを 1 つの複数ページ PDF にまとめるか、表示中のパートだけを書き出せます。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>非常に長いページをキャプチャするとどうなりますか？</summary>
+          <p>
+            スクロールしてキャプチャは、撮影を速く、エディターを快適に保つため、約 <strong>40 画面分</strong>で停止します。
+            ページの上部しか撮影できなかった場合は警告が表示されます。特定の部分なら<strong>範囲を選択</strong>、
+            1 画面分なら<strong>表示範囲をキャプチャ</strong>をお使いください。
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>キャプチャできないページはありますか？</summary>
+          <p>
+            <code>chrome://</code> のページ、Chrome ウェブストア、新しいタブのページはキャプチャできません。
+            先に通常のウェブサイトを開いてください。インストールや更新の後は、ページを一度再読み込み（F5）してください。
+          </p>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 PageDrop · バージョン 1.7.3</p>
+      <p class="footer-links">
+        <a href="privacy.html">プライバシーポリシー</a>
+        ·
+        <a href="https://github.com/roshancodes24" rel="noopener noreferrer">GitHub</a>
+        ·
+        <a href="https://ko-fi.com/roshancodes24" rel="noopener noreferrer">コーヒーをおごる</a>
+        ·
+        <a id="store-footer-link" href="https://chromewebstore.google.com/detail/ijenceibilbleaoipfpclnmepmfmdjfp?hl=ja" rel="noopener noreferrer">Chrome ウェブストア</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="../store-url.js"></script>
+  <script>
+    (function () {
+      // Open the store listing in this page's language.
+      const STORE_HL = 'ja';
+      const btn = document.getElementById('install-btn');
+      const footerLink = document.getElementById('store-footer-link');
+      const note = document.getElementById('install-note');
+      let url = '';
+      try {
+        const u = new URL(window.PAGEDROP_STORE_URL || '');
+        u.searchParams.set('hl', STORE_HL);
+        url = u.toString();
+      } catch (e) {}
+      if (url && btn) {
+        btn.href = url;
+        if (footerLink) footerLink.href = url;
+        if (note) note.hidden = false;
+      }
+    })();
+  </script>
+</body>
+</html>
