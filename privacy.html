@@ -193,7 +193,7 @@
         <span class="brand-name">PageDrop</span>
       </div>
       <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: August 3, 2026</p>
+      <p class="meta">Last updated: November 1, 2026</p>
     </header>
 
     <main>
@@ -240,8 +240,8 @@
         <h2 id="permissions">Permissions Explanation</h2>
         <p>
           PageDrop requests only the permissions needed to capture and edit screenshots when you
-          explicitly start a capture, plus limited host access used solely if you choose to send
-          in-editor Feedback. Capture permissions are not used to collect or transmit personal data
+          explicitly start a capture. It does not ask to read your browsing history or to access any
+          website at install. Capture permissions are not used to collect or transmit personal data
           in the background.
         </p>
         <ul class="permission-list">
@@ -251,16 +251,6 @@
               Allows PageDrop to access the tab you are currently viewing only when you start a capture
               — by clicking the toolbar icon, using a keyboard shortcut, or choosing an option from
               the right-click menu. PageDrop does not access tabs in the background without your action.
-            </span>
-          </li>
-          <li>
-            <span class="permission-name">tabs</span>
-            <span class="permission-desc">
-              Used to identify which tab and window to capture, take the screenshot itself, send
-              coordination messages during full-page and region capture, open the editor after a
-              capture, and show optional capture progress on the extension badge. PageDrop does not
-              read or record the content of your tabs beyond what is needed for the capture you
-              requested.
             </span>
           </li>
           <li>
@@ -295,23 +285,15 @@
               transmitted to any server. Light and dark appearance follow your system setting.
             </span>
           </li>
-          <li>
-            <span class="permission-name">Host access (script.google.com / script.googleusercontent.com)</span>
-            <span class="permission-desc">
-              Used only when you open Feedback in the editor and click Send. The extension may contact
-              a Google Apps Script web app so your written note (and optional reply email) can be
-              emailed to the developer. This access is <strong>not</strong> used for screenshots,
-              browsing history, or background access to normal websites. See
-              <a href="#editor-feedback">In-editor Feedback</a>.
-            </span>
-          </li>
         </ul>
         <p>
-          PageDrop does <strong>not</strong> request broad always-on access to all websites
-          (no <code>&lt;all_urls&gt;</code> host permission). Capture still uses
+          Since version 1.7.3, PageDrop requests <strong>no</strong> host permissions (no access to
+          any website at install) and does <strong>not</strong> request the <code>tabs</code>
+          permission, so it cannot see the addresses of your other tabs. Capture uses
           <code>activeTab</code> and on-demand <code>scripting</code> injection only when you start a
-          capture on the tab you are viewing. The only host permissions are the Google Apps Script
-          origins above, for voluntary Feedback.
+          capture on the tab you are viewing. Optional Feedback is sent to a Google Apps Script web
+          app only when you click Send, and needs no website permission. See
+          <a href="#editor-feedback">In-editor Feedback</a>.
         </p>
       </section>
 

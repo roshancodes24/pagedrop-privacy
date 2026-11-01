@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
   <link rel="apple-touch-icon" href="assets/icon128.png" />
   <title>PageDrop – Full Page Screenshot &amp; Screen Capture Chrome Extension</title>
-  <meta name="description" content="PageDrop is a free Chrome extension for full-page, visible tab, and region screenshots. Annotate, crop, blur sensitive data, and export PNG, JPEG, or PDF. Privacy-first with activeTab only — v1.7.1." />
+  <meta name="description" content="PageDrop is a free Chrome extension for full-page, visible tab, and region screenshots. Annotate, crop, blur sensitive data, and export PNG, JPEG, or PDF. Privacy-first with activeTab only — v1.7.3." />
   <meta name="keywords" content="full page screenshot chrome extension, scrolling screenshot, screen capture, annotate screenshot, blur redact, export pdf jpeg png, snip tool, webpage capture, PageDrop" />
   <meta name="author" content="PageDrop" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
@@ -70,7 +70,7 @@
         "name": "PageDrop",
         "applicationCategory": "BrowserApplication",
         "operatingSystem": "Chrome",
-        "softwareVersion": "1.7.1",
+        "softwareVersion": "1.7.3",
         "datePublished": "2026-07-08",
         "description": "Full-page, visible tab, and region screenshot Chrome extension with built-in editor. Annotate, crop, blur/redact sensitive areas, and export as PNG, JPEG, or PDF. Uses activeTab permission only.",
         "offers": {
@@ -129,7 +129,7 @@
             "name": "Is PageDrop safe and private?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. PageDrop uses the activeTab permission for captures — it does not request broad access to every website at install time. Screenshots are processed locally and are not uploaded during capture, edit, or export. Optional in-editor Feedback sends only the message (and optional reply email) you submit; captures are never attached. The content script runs only when you start a capture."
+              "text": "Yes. PageDrop uses the activeTab permission for captures — it asks for no access to your browsing history or to any website at install time. Screenshots are processed locally and are not uploaded during capture, edit, or export. Optional in-editor Feedback sends only the message (and optional reply email) you submit; captures are never attached. The content script runs only when you start a capture."
             }
           },
           {
@@ -517,7 +517,7 @@
         <div class="brand-tag">Full page &amp; region screenshots for Chrome</div>
         <p class="version-badge" aria-label="Current version">
           <span class="version-badge-dot" aria-hidden="true"></span>
-          New in v1.7.1
+          New in v1.7.3
         </p>
       </div>
 
@@ -542,11 +542,12 @@
 
     <main>
       <section class="card whats-new" aria-labelledby="whats-new-heading">
-        <h2 id="whats-new-heading">What&rsquo;s new in v1.7.1</h2>
+        <h2 id="whats-new-heading">What&rsquo;s new in v1.7.3</h2>
         <ul>
-          <li><strong>Faster long-page capture</strong> — full-page scroll is capped at ~40 frames so capture and editor load stay manageable</li>
-          <li><strong>Clear truncation notice</strong> — warns when only the top portion of a very long page was captured</li>
-          <li><strong>Cleaner errors</strong> — capture failures show once on the page instead of duplicating in the popup</li>
+          <li><strong>No install warnings</strong> — PageDrop no longer asks to read your browsing history or access any website</li>
+          <li><strong>Better Scroll &amp; Capture</strong> — no duplicate sticky headers, and it now works on infinite feeds (X, Reddit, YouTube) and scroll-snapping pages</li>
+          <li><strong>Clear messages</strong> — pages that can&rsquo;t be captured (Chrome Web Store, New Tab) now explain why instead of failing silently</li>
+          <li><strong>Smoother editor</strong> — undo covers text boxes, fixes for crop, highlight and rotate, and much faster editing of long captures</li>
         </ul>
       </section>
 
@@ -577,7 +578,7 @@
       <section class="card" aria-labelledby="privacy-heading">
         <h2 id="privacy-heading">Privacy-first</h2>
         <ul>
-          <li>No broad <code>&lt;all_urls&gt;</code> permission — <strong>activeTab</strong> for captures</li>
+          <li>No install warnings: no browsing-history or website access — <strong>activeTab</strong> for captures</li>
           <li>Content script runs only when <em>you</em> start a capture</li>
           <li>Screenshots stay local until you copy or download</li>
           <li>No cloud upload of captures; optional Feedback sends only text you submit</li>
@@ -650,7 +651,7 @@
         <details class="faq-item">
           <summary>Is PageDrop safe and private?</summary>
           <p>
-            Yes. PageDrop uses <strong>activeTab</strong> for captures — no broad site access at install.
+            Yes. PageDrop uses <strong>activeTab</strong> for captures — no browsing-history or website access at install.
             Screenshots are processed locally and are not uploaded during capture, edit, or export.
             Optional in-editor Feedback sends only the text (and optional reply email) you choose to submit;
             screenshots are never attached. See the <a href="privacy.html">privacy policy</a>.
@@ -693,7 +694,7 @@
     </main>
 
     <footer>
-      <p>© 2026 PageDrop · Version 1.7.1</p>
+      <p>© 2026 PageDrop · Version 1.7.3</p>
       <p style="margin-top: 8px;">
         <a href="privacy.html">Privacy policy</a>
         ·
