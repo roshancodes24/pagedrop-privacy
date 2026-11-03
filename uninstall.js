@@ -76,7 +76,7 @@
 
   // Footer default for direct visits. Survey submissions use only ?v= from
   // chrome.runtime.setUninstallURL (the user's installed extension version).
-  const SITE_VERSION = '1.7.3';
+  const SITE_VERSION = '1.7.4';
   const params = new URLSearchParams(window.location.search);
   const extensionVersion = String(params.get('v') || '').trim();
   const urlSecretKey = params.get('key') || '';
